@@ -1,0 +1,94 @@
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+
+body{
+    margin:0;
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.6em;
+    font-size: 18px;
+    
+
+}
+
+.container{
+    min-width: 100%;
+    
+}
+
+
+
+/* Section: Hero */
+
+.hero{
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    overflow:hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: black; */
+    background: linear-gradient(to left, black, transparent);
+    
+}
+
+/* using Position for Responsive*/
+/* .hero video{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    /* 화면을 줄여도 영상을 중앙에 매칭시키기 위해 위를 사용, position을 사용해서 hero섹션  밑에 video 를 가득 채우는거*/
+    /* top:0;
+    left:0; */
+    /* top0안 하면 왼쪽으로만 붙어서 크게 안 보임 */
+  /*   min-width: 100%;
+    min-height: 100%;
+    z-index: -1; */
+    /* z-index -1해야 가장 최상단으로 취급 받는 비디오가 한 단계 내려가서 글자가 영상 위에 보임. */
+/* } */ 
+
+/* using object-fit for Responsive */
+/* object-fit 은 부모요소의 높이와 너비가 반드시 존재해야하며 자식 요소도 부모 요소의 너비와 높이와 같아야함 */
+/* object fit으로 위에 position 사용할 때, min width& height, top50%,left50% 이걸 단순하게 사용함 */
+.hero video{
+    width:100%;
+    height: 100%;
+
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+
+    object-fit: cover;
+}
+.hero .heading{
+    text-align: center;
+    width: 60%;
+    color: white;
+}
+.hero .heading h1 {
+    font-weight: 500px;
+    line-height: 1.6em;
+    font-size: 2em;
+}
+.hero .heading h1 span{
+    display: block;
+    color:crimson;
+}
+
+
+/* Section: Content */
+
+.content{
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+}
+.content .inner{
+    width: 1280px;
+    display: flex;
+    /* display는 div로 묶인거를 하나의 아이템으로 봄 */
+    gap:70px;
+}
+
