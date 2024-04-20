@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .frame1{
+            border:5px solid black;
+            width: 400px;
+            height: 400px;
+            background: url("./images/woman.jpg") no-repeat center left;
+            margin-bottom: 20px;
+        }
+        .frame2{
+            border:5px solid red;
+            width: 400px;
+            height: 400px;
+            
+        }
+
+        .frame2 img{
+            width: inherit;
+            height: inherit;
+            object-fit: cover;
+            object-position: left;
+        }
+
+        /* frame이 이미지 해상도 및 비율 맞추는 방법 1, frame2가 방법 2. object fit 할 때는 부모 요소의 너비와 높이가 있어야함. */
+
+        .frame3{
+            border: 5px solid red;
+            width: 600px;
+            height: 800px;
+        }
+
+        .frame3 img{
+            width:inherit;
+            height: inherit;
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame3">
+        <img src="./images/front.jpg">
+    </div>
+</body>
+</html>
