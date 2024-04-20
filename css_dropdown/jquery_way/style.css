@@ -1,0 +1,148 @@
+/* Google Web Fonts CDN */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+font-family: 'Noto Sans KR', sans-serif;
+margin:0;
+color:black;
+line-height: 1.5em;
+font-weight: 300;
+font-size:15px;
+}
+
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
+/* Reset CSS */
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: 500;
+    margin-top:0;
+}
+
+/* Dropdown Navigation */
+
+.program{
+    display:flex;
+    justify-content: center;
+}
+.program .inner{
+    width: 1150px;
+    /* margin:auto; */
+}
+
+.program .inner h1{
+    
+    padding-top:10px;
+    padding-bottom:30px;
+    margin-bottom: 30px;
+}
+
+.items{
+    
+    display: flex;
+    gap:40px;
+    
+}
+.item{
+    
+    flex: 1;
+}
+.item-list{
+    
+    text-align: center;
+    color:white;
+    padding: 20px;
+}
+
+/* nth-child 넣을때 아래와 같은 실수 자주 함. item-list에다 그대로 nth-child 하는거. 하지만 실제론
+item이 3개인거임. */
+
+.item:nth-child(1) .item-list{
+    background-color: rgba(73, 73, 233, 0.818);
+    
+}
+.item:nth-child(2) .item-list{
+    background-color: #5049a9;
+}
+.item:nth-child(3) .item-list{
+    
+    background-color: #8c66c1;
+}
+.item-list h4{
+    
+    font-weight: 400;
+    
+}
+
+.btn{
+    background-color: black;
+    color:white;
+    padding: 5px;
+    margin: 3px;
+    display: inline-block;
+    width: 80px;
+}
+.btn.download{
+    width:200px;
+}
+
+.item-desc{
+    padding-bottom:5px;
+    padding-inline: 10px;
+    font-size: 13px;    
+}
+
+.item-desc p{
+    text-align: center;
+}
+
+
+.item:nth-child(1) .item-desc{
+    /* display: none; */
+    border: 3px solid rgba(73, 73, 233, 0.818);
+   
+}
+.item:nth-child(2) .item-desc{
+    border: 3px solid #5049a9;
+    
+}
+
+.item:nth-child(3) .item-desc{
+    border: 3px solid #8c66c1;
+}
+
+
+.item-desc ul{
+    background-color: rgb(246, 242, 242);
+    list-style: none;
+    margin:0;
+    padding-inline: 10px;
+    padding-block: 10px;
+    margin-bottom: 5px;
+    
+}
+
+.item-desc ul li:before{
+    content: '-';
+    margin-right: 10px;
+}
+
+/* JQUERY 방식 드롭다운 네비게이션 */
+
+.item{
+    position:relative;
+}
+.item-desc{
+    width:100%;
+    position:absolute;
+    display: none;
+    background-color: white;
+}
