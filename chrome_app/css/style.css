@@ -1,0 +1,121 @@
+:root{
+    --text-color: #f0f4f5;
+    --background-color: #26334;
+    --accent-color: #d49466;
+}
+
+body{
+    margin:0;
+    font-family:'Source Sans 3'
+}
+
+a{
+    text-decoration: none;
+    color:var(--text-color);
+    
+}
+
+.navbar_logo i{
+    color:#d49466;
+    padding-right: 4px;
+}
+
+.navbar_logo{
+    
+    font-size:24px;
+}
+.navbar_menu{
+    display:flex;
+    list-style:none;   
+    padding-left: 0px;
+}
+
+.navbar_menu li{
+   padding: 8px 12px;
+}
+
+.navbar_menu li:hover{
+    background-color: #d49466;
+    border-radius: 4px;
+}
+
+.navbar{
+    padding: 0px 16px;
+    display:flex;
+    justify-content: space-between;
+    /* flex일 때 justify-content 는 row 즉 수평, align items는 column, 즉 수직*/
+    align-items: center;
+    background-color: #263343;
+}
+
+.navbar_icons{
+    list-style: none;
+    color:white;
+    display:flex;
+    padding-left:  0px;
+}
+
+.navbar_icons li{
+    padding:8px 8px;
+}
+
+.navbar_toogleBtn{
+    display:none;
+    position: absolute;
+    right:32px;
+    font-size: 24px;
+    color: #d49466;
+}
+
+@media screen and (max-width:768px){
+    .navbar{
+        flex-direction:column;
+        align-items: flex-start;
+    }
+
+    .navbar_menu{
+        /* display: none; */
+        flex-direction:column;
+        align-items:center;
+        width: 100%;
+    }
+
+    .navbar_menu li{
+        /* display: none; */
+        width:100%;
+        text-align: center;
+    }
+
+    .navbar_icons{
+        /* display: none; */
+        justify-content: center;
+        width:100%;
+    }
+/*     
+    .navbar_icons.active{
+        display: flex;
+    }
+
+    .navbar_menu.active{
+        display: flex;
+    } */
+    
+}
+
+.content{
+    
+    background-image: url(https://www.starbucks.co.kr/common/img/main/fav_prod_bg_new.jpg) ;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.Flutter{
+    
+    width: 50vw;
+    height: 50vh;
+
+}
