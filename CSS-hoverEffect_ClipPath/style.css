@@ -1,0 +1,118 @@
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.frame .hexagon{}
+.frame .hexagon .shape{}
+.frame .hexagon .shape .caption{}
+.frame .hexagon .shape .caption h2{}
+.frame .hexagon .shape .caption p{}
+.frame .hexagon .shape img{}
+
+/* Hexagon Image Hover Overlay */
+
+
+.frame{
+    display: flex;
+    gap:40px;
+
+}
+
+.hexagon{
+    /* border:1px solid #000; */
+    width:400px;
+    height: 450px;
+    position: relative;
+    transition: 0.5s;    
+}
+
+.shape{
+    position: absolute;
+    clip-path: polygon(50% 0, 100% 30%, 100% 70%, 50% 100%, 0 70%, 0 30%);
+    /* border: 5px solid red; */
+    /* background-color: red; */
+    height: inherit;
+    width: inherit;
+}
+
+.shape img{
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+}
+
+.hexagon:nth-child(1) img{
+    object-position:right;
+}
+
+.hexagon .caption{
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    color:white;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    /* 마우스 댔을 때 text도 올라가게 하는거 */
+}
+h2{
+    font-size: 1.8em;
+}
+
+.hexagon:hover{
+    transform: translateY(-60px);
+}
+
+.hexagon::before{
+    content: '';
+    position: absolute;
+    transform: translateX(50%);
+    width:50%;
+    height:60px;
+    /* background-color: black; */
+    background: radial-gradient(black, transparent, transparent);
+    opacity: 0.5;
+    bottom:-70px;
+    transition: 0.5s;
+}
+
+.hexagon .caption:hover{
+    opacity: 1;
+    transform: translateY(0);
+    
+}
+
+.hexagon:hover::before{
+    opacity: 0.2;
+    transform: scale(0.1),translateX(50%);
+    bottom: -130px;
+    
+}
+
+.hexagon:nth-child(1) .caption{
+    background: linear-gradient(to top, crimson, transparent);
+}
+
+.hexagon:nth-child(2) .caption{
+    background: linear-gradient(to top, royalblue, transparent);
+}
+
+.hexagon:nth-child(3) .caption{
+    background: linear-gradient(to top, yellowgreen, transparent);
+}
