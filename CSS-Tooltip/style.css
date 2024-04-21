@@ -4,33 +4,98 @@
 /* Google Web Font */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
 
-
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
 
 body{
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     height: 100vh;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    background-color: black;
 }
 
-.tooltip{
-    width: 50px;
-    height: 50px;
+.sns{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:100vw;
+    text-align: center;
+}
+
+.sns i{  
+    margin-inline: 10px;
+    font-size: 50px;
+    color:white;
+}
+
+.sns a{
+    line-height: 0.48em;
     position: relative;
-    /* border: 1px solid black; */
+    text-decoration: none;
+    color:white;
+    font-size: 30px;
+}
+
+/* 이건 툴팁과 다르게 data-text로 html에 구조를 줘서 데이터 살짝 띄우려고 사용 */
+.sns a::before{
+    
+    display: none;
+    position: absolute;
+    left:50%;
+    transform: translate(-50%);
+    width: 60px;
+    height: 15px;
+    top: -40px;
+    /* border:1px solid white; */
+    border-radius: 3px;
+    background-color: #777;
+    font-size: 10px;
+    color: black;
+    /* 원래 a는 inline형식이지만 absolute 넣으면 inline-block 형식으로 바뀜 */
+    content:attr(data-text);
+}
+
+.sns a::after{
+    display: none;
+    position: absolute;
+    content: '';
+    background-color: #777;
+    width:4px;
+    height:4px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+    top: -70%;
+}
+
+/* Hover Function */
+
+.sns a:hover::before,
+.sns a:hover::after
+{
+    display: block;
+}
+
+
+
+/* .tooltip{
+    position: relative;
+    border: 1px solid rgb(255, 255, 255);
     text-align: center;
 }
 
 .tooltip .fa{
+    display: none;
     font-size: 50px;
     color:rgb(81, 177, 251);
 }
 .tooltip span{
     position: absolute;
     /* display: none; */
-    color:white;
+ /*    color:white;
     background-color: black;
     width:50vw;
     padding: 5px;
@@ -38,15 +103,15 @@ body{
     left:50%;
     transform: translateX(-50%);
     /* display: none; */
-    visibility: hidden;
+   /*  visibility: hidden; */ 
     /* visibility:hidden -> 이거는 마우스에 감지 안 되게 하는거 이렇게
         해야 span쪽에 마우스 올렸을때 텍스트를 마우스가 감지하지 않음.(커서가 바뀌지 않음)
     */
-    opacity: 0;
+/*     opacity: 0;
     transition: 0.3s;
 }
-
-.tooltip span::after{
+ */
+/* .tooltip span::after{
    content: '';
    position: absolute;
    width: 10px;
@@ -57,14 +122,9 @@ body{
    transform: translateX(-50%) rotate(45deg);
    
 }  
-
-.fa-question-circle{
-
-}
-
 /* Hover Function */
-.tooltip:hover span{
+/* .tooltip:hover span{ */
     /* display: block; */
-    opacity: 1;
-    visibility: visible;
-}
+   /*  opacity: 1;
+    visibility: visible; */
+/* } */
