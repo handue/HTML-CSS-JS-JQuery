@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+@import url('https:///cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+*{
+    box-sizing: border-box;
+    line-height: 1.5em;
+}
+
+body{
+    margin:0;
+}
+
+section{
+   margin:auto;
+   margin-block: 40px;
+   border: 1px solid red;
+   border-radius: 10px;
+   width:400px;
+}
+
+section .profile{
+    text-align: center;
+}   
+
+section .profile .profile_image{
+    /* display: flex;
+    justify-content: center; */
+    width:200px;
+    height: 200px;
+    border: 3px solid blue;
+    border-radius: 50%;
+    overflow: hidden;
+    margin:auto;
+    margin-top:40px;
+}
+
+section .profile .profile_image img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
+.contents {
+    border:3px solid black;
+    text-align: center;
+    font-family: "Roboto Slab", serif;
+}
+
+.contents h1{
+    font-weight: 350;
+}
+
+.contents p{
+    font-weight: 300;
+}
+
+.contents p span{
+    color:#2886e5;
+}
+
+.view_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    border: 1px solid yellowgreen;
+    font-size: 18px;
+    width: 150px;
+    height:35px;
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+    color:white;
+    border-radius: 100px;
+}
+
+.view_button:hover{
+    cursor: pointer;
+}
+
+.icons{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap:10px;
+    border: 1px solid red;
+}
+.icons .icon {
+    width: 100%;
+    /* display: inline-block; */
+    border: 1px solid blue;
+}
+
+
+.icons .icon i{
+    line-height: 1.6em;
+    color:white;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.icons .icon:nth-child(1) i{
+    background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+}
+
+.icons .icon:nth-child(2) i{
+    background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+}
+
+.icons .icon:nth-child(3) i{
+    background-image: linear-gradient(to top, #cd9cf2 0%, #f6f3ff 100%);
+}
+
+.icons .icon p{
+    border: 1px solid rgb(200, 200, 235);
+    font-size: 18px;
+    line-height: 1.2em;
+}
+
+.icons .icon span{
+    font-size: 12px;
+    color:white;
+}
+
+.profile::before{
+    content: 'f186';
+    font-family: 'fontawesome';
+}
+
+.profile::after{}
