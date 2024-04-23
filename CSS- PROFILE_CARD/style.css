@@ -9,18 +9,24 @@
 
 body{
     margin:0;
+    background: url('./images/svg-background.svg');
 }
 
 section{
    margin:auto;
-   margin-block: 40px;
-   border: 1px solid red;
-   border-radius: 10px;
+   margin-block: 40px;  
    width:400px;
+   height:580px;
 }
 
 section .profile{
+    position: relative;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
     text-align: center;
+    width:400px;
+    height:580px;
 }   
 
 section .profile .profile_image{
@@ -28,21 +34,20 @@ section .profile .profile_image{
     justify-content: center; */
     width:200px;
     height: 200px;
-    border: 3px solid blue;
+    margin:auto;
+    margin-top:20px;
     border-radius: 50%;
     overflow: hidden;
-    margin:auto;
-    margin-top:40px;
 }
 
 section .profile .profile_image img{
     width:100%;
     height:100%;
     object-fit: cover;
+    object-position:0 30%;
 }
 
 .contents {
-    border:3px solid black;
     text-align: center;
     font-family: "Roboto Slab", serif;
 }
@@ -60,13 +65,13 @@ section .profile .profile_image img{
 }
 
 .view_button{
+    line-height: 1.5em;
     display: flex;
     justify-content: center;
     align-items: center;
     margin:auto;
-    border: 1px solid yellowgreen;
     font-size: 18px;
-    width: 150px;
+    width: 200px;
     height:35px;
     background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
     color:white;
@@ -78,16 +83,11 @@ section .profile .profile_image img{
 }
 
 .icons{
+    position: relative;
     margin-top: 40px;
     display: flex;
     justify-content: center;
-    gap:10px;
-    border: 1px solid red;
-}
-.icons .icon {
-    width: 100%;
-    /* display: inline-block; */
-    border: 1px solid blue;
+    gap:30px;   
 }
 
 
@@ -97,7 +97,6 @@ section .profile .profile_image img{
     width: 50px;
     height: 50px;
     font-size: 30px;
-    border: 1px solid black;
     border-radius: 50%;
 }
 
@@ -114,7 +113,6 @@ section .profile .profile_image img{
 }
 
 .icons .icon p{
-    border: 1px solid rgb(200, 200, 235);
     font-size: 18px;
     line-height: 1.2em;
 }
@@ -124,9 +122,22 @@ section .profile .profile_image img{
     color:white;
 }
 
-.profile::before{
-    content: 'f186';
-    font-family: 'fontawesome';
+.profile .background-mode{
+    position: absolute;
+    margin: 10px;
+    left:0;
+    top:0;
+    font-size: 21px;
 }
 
-.profile::after{}
+.profile .background-mode:hover{
+    
+}
+
+.profile .like_menu{
+    position:absolute;
+    margin: 10px;
+    right:0;
+    top:0;
+    font-size: 21px;
+}
