@@ -31,10 +31,16 @@
     }
 
     .gnb{
+        text-align: center;
         width: 100%;
-        
+        position: fixed;
+        justify-content: center;
+        align-items: center;
     }
-    .gnb a{
+
+
+
+    .gnb a{       
         font-size:2.2em;
     }
 }
