@@ -1,0 +1,258 @@
+/* XEION CDN */
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size:15px;
+    color: #333;
+    background-image: url(./images/background.png);
+    background-position: center;
+    margin:0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100vw;
+    height: 600px;
+    
+}
+
+section{
+    height: 570px;
+    width:400px;  
+}
+
+.login{
+    height: inherit;
+    width:inherit;  
+    border:1px solid black;
+    border-radius: 20px;
+    overflow: hidden; 
+    background-color: white;
+    width: inherit;
+    height: inherit;
+    display: block;
+    padding-inline: 30px;
+}
+
+.login h1{
+    text-align: center;
+    font-size:32px;
+    margin-bottom: 30px;
+}
+
+
+.login .field{
+    display: block;
+    padding-bottom: 5px;
+    text-transform: capitalize;
+    margin-top: 20px;
+}
+
+input,button{
+    outline: none;
+}
+
+
+input[type=email], 
+input[type=password]{
+    border:none;
+    border-bottom:1px solid #ddd;
+    width:100%;
+    padding: 12px;
+    padding-bottom: 8px;
+    padding-left:30px;
+
+}
+
+input[type=email]{
+    background: url(./images/icon-user.png) no-repeat center left 3px;
+}
+
+input[type=password]{
+    background:url(./images/icon-password.png) no-repeat center left 3px;
+}
+
+input[type=email]::placeholder,
+input[type=password]::placeholder{
+    color: #aaa;
+    transition: 0.35;
+    visibility: visible;
+}
+
+input[type=email]:focus,
+input[type=password]:focus{
+    border-bottom:1px solid #999;
+}
+
+input[type=email]:focus::placeholder,
+input[type=password]:focus::placeholder
+{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.save-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block:30px;
+    text-align: center;
+    color:#999;
+    border-color: 1px solid blue;    
+    /* overflow: hidden; */
+}
+
+.save-info label{
+    /* float:left; */
+}
+
+.save-info a{
+    text-decoration: none;
+    color:#999;
+    /* float:right; */
+}
+
+.event_info{
+    text-align: center;
+}
+
+.event_info label{
+    display: inline-block;
+    margin-inline: 5px;
+}
+
+.custom-checkbox{
+    margin-block: 10px;
+}
+
+.login input[type=button]{
+    cursor: pointer;
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    width:100%;
+    padding:10px;
+    border-radius: 30px;
+    border:none;
+    text-transform: uppercase;
+    font-size: 17px;
+    margin-bottom:10px;
+    color:white;
+}
+
+.sns_icons{
+    text-align: center;
+}
+
+.sns_icons .sns{
+    padding: 10px 10px;
+
+}
+
+.sns_icons .sns a{
+    color:black;
+    
+}
+
+.sns_icons .sns i{
+    margin-right: 5px;
+    line-height: 1.55em;
+    font-size: 28px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color:white;
+    background-color: red;
+}
+
+.sns a i:hover{
+    /* transform: rotateY(360deg);
+    transition: 0.35s; */
+
+    transform: scale(1.1);
+}
+
+.sns a:nth-child(1) i{
+    background-color: #FF3300;
+}
+
+.sns a:nth-child(2) i{
+    background-color: #1877F2;
+}
+
+.sns a:nth-child(3) i{
+    background-color: #00C300;
+}
+
+.sns a:nth-child(4) i{
+    background-color: #ffdc00;
+}
+.signup{
+    text-align: center;
+    margin-top:8px;
+}
+
+.signup span{
+    margin-bottom: 5px;
+    display: block;
+}
+
+.signup a{
+    padding-top: 5px;
+    text-decoration: none;
+    color: #999;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.signup a:hover{
+    text-decoration: underline;
+}
+
+/* Custom CheckBox % Radio */
+
+input[id=save-email]{
+    display: none;
+}
+
+input[name=event]{
+    display: none;
+}
+
+input[id=save-email] + em{
+    /* +는  인근선택자 */
+    
+    width:18px;
+    height: 18px;
+    display: inline-block;
+    margin-right: 5px;
+    background: url(./images/icon-checkbox.png) no-repeat;
+    background-position: left;
+    /* 중앙 정렬 방법1 */
+   /*  vertical-align: middle;
+    margin-top: -3px; */
+
+    /* 중앙 정렬 방법 2 */
+    transform: translateY(3px);
+}
+input[id=save-email]:checked + em{
+    background-position: right;
+}
+
+input[name=event] + em{
+    
+    width:18px;
+    height: 18px;
+    display: inline-block;
+    margin-right: 5px;
+    background: url(./images/icon-radio.png) no-repeat;
+    background-position: left;
+    transform: translateY(2.5px);
+}
+
+input[name=event]:checked + em{
+    background-position: right;
+}
