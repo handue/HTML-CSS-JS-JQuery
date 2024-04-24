@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css">
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <title>Document</title>
@@ -15,19 +16,19 @@
     <div class="overlay"></div>
     <div class="gnb">
       <ul>
-        <li><a href="#none">Home</a></li>
-        <li><a href="#none">About</a></li>
-        <li><a href="#none">Web Portfolio</a></li>
-        <li><a href="#none">Contact</a></li>
-        <li><a href="#none">Epilogue</a></li>
+        <li><a href="#section1">Home</a></li>
+        <li><a href="#section2">About</a></li>
+        <li><a href="#section3">Web Portfolio</a></li>
+        <li><a href="#section4">Skils</a></li>
+        <li><a href="#section5">Epilogue</a></li>
       </ul>
     </div>
 
     <div class="container">
-      <section class="welcome">
+      <section class="welcome" id="section1">
         <img src="./images/bg-welcome.jpg" alt="" />
       </section>
-      <section>
+      <section id="section2">
         <div class="inner">
           <div class="heading">
             <b>Lorem ipsum dolor sit amet consectetur</b>
@@ -36,7 +37,7 @@
           </div>
         </div>
       </section>
-      <section>
+      <section id="section3">
         <div class="inner">
          <div class="heading">
             <b>Lorem ipsum dolor sit amet consectetur</b>
@@ -45,16 +46,16 @@
          </div>
         </div>
       </section>
-      <section>
+      <section id="section4">
         <div class="inner">
          <div class="heading">
             <b>Lorem ipsum dolor sit amet consectetur</b>
-            <h1>Section:Contact</h1>
+            <h1>Section:Skils</h1>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita, quis ut iste ratione ipsum architecto maxime voluptatem quos quia molestiae ducimus possimus, totam vero, nam amet dolore exercitationem eaque sint.</p>
          </div>
         </div>
       </section>
-      <section>
+      <section id="section5">
         <div class="inner">
          <div class="heading">
             <b>Lorem ipsum dolor sit amet consectetur</b>
@@ -68,6 +69,10 @@
     <script>
       $('.toggle').click(function(){
         $('.toggle,.overlay,.gnb').toggleClass('active')
+      })
+
+      $('.gnb a').click(function(){
+        $('.toggle, .overlay, .gnb').removeClass('active')
       })
     </script>
   </body>

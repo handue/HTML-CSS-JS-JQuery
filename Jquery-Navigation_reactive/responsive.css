@@ -1,0 +1,40 @@
+@media (max-width: 768px){
+    /* .gnb */
+    /* Common Css */
+
+    section:not(.welcome){
+        height: auto;
+        /* 모바일이나 작은 화면으로 볼 때는 height 100vh 이런거 안됨. auto줘야함. 그리고 width 에대해 px값 준거 다 수정해야함 */
+        padding-block: 30px;
+        padding-inline: 20px;
+    }
+
+    /* section .welcome{
+        padding-block:0px;
+        padding-inline: 0px;
+
+        or
+
+        padding:0px;
+        
+        or 
+
+        not 클래스
+    } */
+    section .inner{
+        width: 100%;
+    }
+
+    .heading h1{
+        line-height: 1.3em;
+        font-size:2em;
+    }
+
+    .gnb{
+        width: 100%;
+        
+    }
+    .gnb a{
+        font-size:2.2em;
+    }
+}
