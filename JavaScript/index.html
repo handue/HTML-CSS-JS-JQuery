@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <title>Document</title>
 </head>
-    
+    <button class="btn-open">뉴스레터 구독하기</button>
     <div class="modal">
         <div class="modal-content">
-            <div class="photo"></div>
+            <div class="photo">
+            </div>
             <div class="desc">
                 <div class="desc-header">
                     <h2>지금 다양한 혜택을 받아보세요.</h2>
@@ -27,7 +30,12 @@
 
     </div>
     <script>
-        
+        $('.btn-open').click(function(){
+            $('.modal,.overlay').addClass('active')
+        })
+        $('.btn_close, .overlay').click(function(){
+            $('.modal,.overlay').removeClass('active')
+        })
     </script>
 </body>
 </html>
