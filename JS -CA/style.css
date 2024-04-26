@@ -1,0 +1,28 @@
+:root{
+    
+}
+
+body{
+    width:100vw;
+    height: 2000px;
+}
+.hi{
+    border: 1px solid red;
+    margin: auto;
+    transform: translateY(300px);
+}
+
+nav .navbar-brand{
+    border: 1px solid black;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    font-size: 40px;
+    transition: 0.5;
+}
+
+.content{
+    background-color: aqua;
+    height: 2000px;
+}
