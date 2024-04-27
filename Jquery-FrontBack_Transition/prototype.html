@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="prototype.css">
+    <!-- jQuery CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+
+    <div class="open-navi">
+      <i class="xi-arrow-right"></i>
+    </div>
+    <div class="close-navi">
+      <i class="xi-arrow-left"></i>
+    </div>
+    <div class="front">
+      <img src="./images/temp-image-01.jpg" alt="">
+    </div>
+    <div class="back">
+      <img src="./images/temp-image-02.jpg" alt="">
+    </div>
+
+    <script>
+      $('.open-navi').on("click",function(){
+        $(this).addClass('active');
+        $('.close-navi').addClass('active');
+    
+        $('.front').fadeOut();
+        $('.back').fadeIn();
+      })
+
+      $('.close-navi').on("click",function(){
+        $(this).removeClass('active');
+        $('.open-navi').removeClass('active');
+        $('.front').fadeIn();
+        $('.back').fadeOut();
+      })
+    </script>
+  </body>
+</html>
