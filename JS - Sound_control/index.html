@@ -26,9 +26,17 @@
     <div class="sound-animation">
         <audio src="./audio/mountain-sky-bgm.mp3" type="audio/mpeg" id="audio"></audio>
     </div>
+
+    <div class="audio-status">
+        <span style="height:40%"></span>
+        <span style="height:100%"></span>
+        <span style="height:60%"></span>
+        <span style="height:40%"></span>
+    </div>
     <script>
         var audio = document.getElementById('audio');
         var btnPlayPause = document.getElementsByClassName('start-pause');
+        var audioStatus = document.getElementsByClassName('audio-status');
         var checkStatus = false;
 
         function playPause(){
@@ -37,12 +45,14 @@
                 audio.play();
                 checkStatus=true;
                 btnPlayPause[0].innerHTML ='<p>Pause</p><i class="fa fa-pause"></i>';
+                audioStatus[0].classList.add('active')
             }
             else{
                 console.log('퍼즈');
                 checkStatus =false;
                 audio.pause();
                 btnPlayPause[0].innerHTML = '<p>Start</p><i class="fa fa-play"></i>';
+                audioStatus[0].classList.remove('active')
             }
         }
 
