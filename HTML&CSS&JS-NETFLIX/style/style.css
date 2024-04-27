@@ -110,7 +110,7 @@ a{
 .getstarted input[type=email]{
     background-color: rgba(0, 0, 0, 0.379);
     width: 30%;
-    padding-left: 12px;
+    padding-left: 15px;
     color: white;
     margin-right: 10px;
     border-radius: 5px;
@@ -123,35 +123,29 @@ a{
     
 }
 
-/* .getstarted input[type=email]::placeholder{
-    color:rgba(255, 255, 255, 0.611);
-    height: 100%;
-} */
-
 .getstarted input[type=email]:focus{
-    outline: none;
-    border: 3px solid white;
+    outline-color: white;
     transition: 0.3s;
 }
 
-.getstarted span{
+.getstarted .email-placeholder{
     font-size: 17px;
     position: absolute;
     left:26.7%;
     top:17px;
     color:rgba(255, 255, 255, 0.611);
     transition: 0.3s;
+    pointer-events: none;
 }
 
 
-.getstarted input[type=email]:focus + span{
+.getstarted .email-placeholder.active{
    position: absolute;
    left:26.9%;
    top:5px;
    font-size: 12px;
    transition: 0.2s;
 }
-
 
 .getstarted button{
     width:18%;
@@ -162,4 +156,5 @@ a{
     font-size:25px;
     font-weight: 550;
     cursor: pointer;
+    
 }
