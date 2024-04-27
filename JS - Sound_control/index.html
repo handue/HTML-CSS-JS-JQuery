@@ -12,18 +12,47 @@
         <h1>자바스크립트 사운드 재생 제어하기</h1>
       </div>
       <div class="icons">
-        <div class="play">
-            <button><p>Start</p><i class="fa fa-play"></i></button>
+        <div class="play-box">
+            <button class="start-pause" onclick="playPause()"><p>Start</p><i class="fa fa-play"></i></button>
+            
             <!-- xi-pause<i class="xi-pause"></i> -->
         </div>
-        <div class="stop">
-            <button><p>Stop</p><i class="fa fa-stop"></i></button>
+        <div class="stop-box" onclick="stop()">
+            <button class="stop"><p>Stop</p><i class="fa fa-stop"></i></button>
         </div>
       
       </div>
     </div>
     <div class="sound-animation">
-        
+        <audio src="./audio/mountain-sky-bgm.mp3" type="audio/mpeg" id="audio"></audio>
     </div>
+    <script>
+        var audio = document.getElementById('audio');
+        var btnPlayPause = document.getElementsByClassName('start-pause');
+        var checkStatus = false;
+
+        function playPause(){
+            if(checkStatus == false){
+                console.log('시작');
+                audio.play();
+                checkStatus=true;
+                btnPlayPause[0].innerHTML ='<p>Pause</p><i class="fa fa-pause"></i>';
+            }
+            else{
+                console.log('퍼즈');
+                checkStatus =false;
+                audio.pause();
+                btnPlayPause[0].innerHTML = '<p>Start</p><i class="fa fa-play"></i>';
+            }
+        }
+
+        function stop(){
+            if(checkStatus==true){
+            playPause();
+            audio.pause();
+            audio.currentTime =0;
+            }
+        }
+    </script>
   </body>
 </html>
