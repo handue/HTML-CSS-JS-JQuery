@@ -1,0 +1,165 @@
+/* XEION CDN */
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+*{
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    color: white;
+    margin: 0;
+    line-height: 1.6em;
+    width: 100%;
+    height: 100vh;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+}
+
+
+.container{  }
+
+/* Header */
+.container header{
+    overflow: hidden;
+    padding: 15px 55px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    
+}
+.logo{
+    float:left;
+}
+.logo img{
+    width: 170px;
+}
+.container .signin{}
+.container .signin button{
+    border: none;
+    background-color: crimson;
+    color: white;
+    border-radius: 5px;
+    padding:7px 15px;
+    text-transform: capitalize;
+    float: right;
+}
+
+
+/* Section - Welcome */
+
+.welcome{
+    width: 100vw;
+    height: 80vh;
+    object-fit: cover;
+    background: url(../images/background.png) no-repeat center center;
+    border: 1px solid red;
+    background-size: cover;
+    position: relative;
+}
+
+.welcome::before{
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+}
+
+.heading{
+    
+    width: 80%;
+    height: 55%;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.heading h1{
+    font-size: 60px;
+    font-weight: 600;
+}
+
+.heading h4{
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.heading p{
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.getstarted{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 20%;
+}
+
+.getstarted input[type=email]{
+    background-color: rgba(0, 0, 0, 0.379);
+    width: 30%;
+    padding-left: 12px;
+    color: white;
+    margin-right: 10px;
+    border-radius: 5px;
+    border:1px solid rgba(255, 255, 255, 0.343);
+    font-size: 16px;
+    padding-top: 15px;
+    /* vertical-align: middle;
+        버튼이랑 동시에 줬을 떄 수평 맞추려면 이렇게.
+    */
+    
+}
+
+/* .getstarted input[type=email]::placeholder{
+    color:rgba(255, 255, 255, 0.611);
+    height: 100%;
+} */
+
+.getstarted input[type=email]:focus{
+    outline: none;
+    border: 3px solid white;
+    transition: 0.3s;
+}
+
+.getstarted span{
+    font-size: 17px;
+    position: absolute;
+    left:26.7%;
+    top:17px;
+    color:rgba(255, 255, 255, 0.611);
+    transition: 0.3s;
+}
+
+
+.getstarted input[type=email]:focus + span{
+   position: absolute;
+   left:26.9%;
+   top:5px;
+   font-size: 12px;
+   transition: 0.2s;
+}
+
+
+.getstarted button{
+    width:18%;
+    border-radius: 5px;
+    border: none;
+    color:white;
+    background-color: rgba(255, 0, 0, 0.905);
+    font-size:25px;
+    font-weight: 550;
+    cursor: pointer;
+}

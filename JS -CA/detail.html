@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,30 +7,24 @@
     <link rel="stylesheet" href="detail.css">
   </head>
   <body>
-
-    <div class="contents">
-        <div class="buttons">
-            <div class="button1">
-                <button>Activie</button>
-                <p>ㅎㅇ</p>
-            </div>
-            <div class="button2">
-                <button>Inactive</button>
-                <p>ㅂㅇ</p>
-            </div>
-            <div class="button3">
-                <button>Other</button>
-                <p>ㅠㅠ</p>
-            </div>
-        </div>
-        <div class="content"></div>
-    </div>    
-
+    
+    <div class="container mt-3">
+      <div class="card p-3" >
+          <span class="car-title"></span>
+          <span class="price"></span>
+      </div>
+    </div>
+    
   </body>
   <script
     src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
     crossorigin="anonymous"
   ></script>
-  <script></script>
+  <script>
+    var car2 = {name: '소나타', price: [50000,3000,4000]};
+    document.querySelector('.car-title').innerHTML = car2['name'];
+    document.querySelector('.price').innerHTML = car2.price[0];
+
+  </script>
 </html>
