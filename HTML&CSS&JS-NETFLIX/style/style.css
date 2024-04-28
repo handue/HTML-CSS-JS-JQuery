@@ -16,7 +16,7 @@ body{
     width: 100vw; 
     height: 100vh;
     margin: 0;
-    border: 1px solid white;
+    
     overflow-x: hidden;
 }
 
@@ -28,10 +28,9 @@ a{
 
 .container{ 
     position: relative;
-    width:inherit;
+    min-width:100vw;
     height: inherit;
-    border: 1px solid red;
-
+    
  }
 
 /* Header */
@@ -39,7 +38,7 @@ a{
     overflow: hidden;
     padding: 15px 55px;
     position: absolute;
-    width: 100%;
+    width: 100vw;
     z-index: 1;
     
 }
@@ -56,6 +55,7 @@ a{
     color: white;
     border-radius: 5px;
     padding:7px 15px;
+    font-size: 16px;
     text-transform: capitalize;
     float: right;
 }
@@ -64,7 +64,7 @@ a{
 /* Section - Welcome */
 
 .welcome{
-    width: 100%;
+    width: 100vw;
     height: 80vh;
     object-fit: cover;
     background: url(../images/background.png) no-repeat center center;
@@ -84,7 +84,7 @@ a{
 
 .heading{
     margin-top: 50px;
-    width: 80%;
+    width: 100%;
     height: 55%;
     position: absolute;
     top:50%;
@@ -171,7 +171,8 @@ a{
 
 .adsplan{
     display: flex;
-    width:100%;
+    width:inherit;
+    /* box-shadow: 10px 10px 10px 10px red; */
 }
 
 .ads-container{
@@ -182,7 +183,8 @@ a{
     align-items: center;
     gap:20px;
     background-image: linear-gradient(to right, #0250c583 0%, #d43f8c86 60%,   #0250c583 100%);
-   
+    box-shadow: 100px 0 50px 0px rgb(0, 0, 0) inset,
+                -100px 0 50px 0px rgb(0, 0, 0) inset;
 }
 
 .ads-icon{
@@ -194,8 +196,8 @@ a{
 
 .ads-icon img{
     position: absolute;
-    width: 8%;
-    height: 60%;
+    width: 90%;
+    height: 80%;
     object-fit: cover;
     top:50%;
     left:50%;
@@ -224,3 +226,57 @@ a{
 }
 
 /* Section = enjoy */
+
+.enjoy-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 60vh;
+    
+}
+
+.enjoy-content{
+    margin-left: 200px;
+    width: inherit;
+    height: 100%;
+    padding-left: 80px;
+    padding-top: 80px;
+}
+
+.enjoy-content h3{
+    font-size: 50px;
+}
+
+.enjoy-content h5{
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.tv-gif{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 50px;
+    margin-right: 200px;
+}
+
+.tv-gif img{
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+    z-index: 1;
+}
+.tv-gif video{
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.126);
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+    z-index: 0;
+    top:50%;
+    left:50%;
+    transform: translate(-50.0%,-50%);
+}
