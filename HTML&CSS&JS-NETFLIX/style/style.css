@@ -25,7 +25,6 @@ a{
     color:white;
 }
 
-
 .container{ 
     position: relative;
     min-width:100vw;
@@ -183,9 +182,9 @@ a{
     justify-content: center;
     align-items: center;
     gap:20px;
-    background-image: linear-gradient(to right, #0250c583 0%, #d43f8c86 60%,   #0250c583 100%);
-    box-shadow: 100px 0 50px 0px rgb(0, 0, 0) inset,
-                -100px 0 50px 0px rgb(0, 0, 0) inset;
+    background-image: linear-gradient(to right, black 0%, #0250c583 20%, #d43f8c86 40%, #d43f8c86 60%,#0250c583 80%, black 100%);
+    box-shadow: 50px 0 35px 0px rgb(0, 0, 0) inset,
+                -50px 0 35px 0px rgb(0, 0, 0) inset;
 }
 
 .ads-icon{
@@ -226,19 +225,25 @@ a{
     vertical-align: middle;    
 }
 
-/* Section = enjoy */
 
-.enjoy-container{
+/* Sections Common */
+
+.enjoy-container,
+.watch-container,
+.create-container,
+.download-container{
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 60vh;
-    
+    border-bottom: 10px solid rgba(128, 128, 128, 0.498);
 }
 
-.enjoy-content{
+.enjoy-content,
+.create-content
+{
     margin-left: 200px;
     width: inherit;
     height: 100%;
@@ -246,21 +251,30 @@ a{
     padding-top: 80px;
 }
 
-.enjoy-content h3{
+
+.watch-content,
+.download-content{
+    margin-right:200px;
+    width:inherit;
+    height: 100%;
+    padding-right:80px;
+    padding-top:80px;
+}
+
+.enjoy-content h3,
+.watch-content h3,
+.create-content h3,
+.download-content h3{
     font-size: 50px;
 }
 
-.enjoy-content h5{
+.enjoy-content h5,
+.download-content h5,
+.watch-content h5,
+.create-content h5,
+.download-content h5{
     font-size: 20px;
     font-weight: normal;
-}
-
-.tv-gif{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding-bottom: 50px;
-    margin-right: 200px;
 }
 
 .tv-gif img{
@@ -280,4 +294,28 @@ a{
     top:50%;
     left:50%;
     transform: translate(-50.0%,-50%);
+}
+
+
+
+/* Section = enjoy */
+
+.enjoy-container .tv-gif{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 50px;
+    margin-right: 200px;
+}
+
+
+
+/* Section Part Watch */
+
+.watch-container .tv-gif{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 50px;
+    margin-left: 200px;
 }

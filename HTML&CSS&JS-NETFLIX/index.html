@@ -1,69 +1,104 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Netflix</title>
     <!-- Custom CSS & JS -->
-    <link rel="stylesheet" href="./style/style.css">
-    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
     <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-</head>
-<body>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <div class="logo">
-                <img src="./images/logo.png" alt="">
-            </div>
-            <div class="signin">
-                <button>sign in</button>
-            </div>
-        </header>
-        <section class="welcome">
-            <div class="heading">
-                <h1>
-                    Unlimited movies, TV shows, and more</h1>
-                <h4>Watch anywhere. Cancel anytime.</h4>
-                <p>Ready to watch? Enter your email to create or restart your membership.</p>
-                <div class="getstarted">
-                    <input type="email" name="" id="email" ><span class="email-placeholder">Email address</span>
-                    <button>Get Started<i class="xi-angle-right-min"></i></button>
-                </div>
-            </div>
-        </section>
-        <section class="adsplan">
-            <div class="ads-container">
-                <div class="ads-icon">
-                    <img src="./images/popcorn.png" alt="">
-                </div>
-                <div class="ads-content">
-                    <h4>The Netflix you love for just KRW 5,500.</h4>
-                    <p>Get the Standard with ads plan.</p>
-                    <a href="#none">Learn More<i class="xi-angle-right-min"></i></a>
-                </div>
-            </div>
-        </section>
-        <section class="enjoy">
-            <div class="enjoy-container">
-                <div class="enjoy-content">
-                    <h3>Enjoy on your TV</h3>   
-                    <h5>Watch on Smart TVs, Playstation, Xbox,<br>Chromecast, Apple TV, Blu-ray players, and more.</h5>
-                </div>
-                <div class="tv-gif">
-                    <video src="./videos/videos.m4v" autoplay playsinline muted loop></video>
-                    <img src="./images/tv.png" alt="">
-                   
-                </div>
-            </div>
-
-        </section>
-        <section class="download"></section>
-        <section class="watch"></section>
-        <section class="create"></section>
-        <section class="faq"></section>
+      <header>
+        <div class="logo">
+          <img src="./images/logo.png" alt="" />
+        </div>
+        <div class="signin">
+          <button>sign in</button>
+        </div>
+      </header>
+      <section class="welcome">
+        <div class="heading">
+          <h1>Unlimited movies, TV shows, and more</h1>
+          <h4>Watch anywhere. Cancel anytime.</h4>
+          <p>
+            Ready to watch? Enter your email to create or restart your
+            membership.
+          </p>
+          <div class="getstarted">
+            <input type="email" name="" id="email" /><span
+              class="email-placeholder"
+              >Email address</span
+            >
+            <button>Get Started<i class="xi-angle-right-min"></i></button>
+          </div>
+        </div>
+      </section>
+      <section class="adsplan">
+        <div class="ads-container">
+          <div class="ads-icon">
+            <img src="./images/popcorn.png" alt="" />
+          </div>
+          <div class="ads-content">
+            <h4>The Netflix you love for just KRW 5,500.</h4>
+            <p>Get the Standard with ads plan.</p>
+            <a href="#none">Learn More<i class="xi-angle-right-min"></i></a>
+          </div>
+        </div>
+      </section>
+      <section class="enjoy">
+        <div class="enjoy-container">
+          <div class="enjoy-content">
+            <h3>Enjoy on your TV</h3>
+            <h5>
+              Watch on Smart TVs, Playstation, Xbox,<br>Chromecast, Apple TV,
+              Blu-ray players, and more.
+            </h5>
+          </div>
+          <div class="tv-gif">
+            <video
+              src="./videos/videos.m4v"
+              autoplay
+              playsinline
+              muted
+              loop
+            ></video>
+            <img src="./images/tv.png" alt="" />
+          </div>
+        </div>
+      </section>
+      <section class="watch">
+        <div class="watch-container">
+          <div class="tv-gif">
+            <video
+              src="./videos/videos.m4v"
+              autoplay
+              playsinline
+              muted
+              loop
+            ></video>
+            <img src="./images/tv.png" alt="" />
+          </div>
+          <div class="watch-content">
+            <h3>Watch everywhere</h3>
+            <h5>
+                Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.
+            </h5>
+          </div>
+        </div>
+      </section>
+      <section class="create"></section>
+      <section class="download"></section>
+      <section class="faq"></section>
     </div>
 
     <script src="./js/main.js"></script>
-</body>
+  </body>
 </html>
