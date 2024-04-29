@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sticky animation</title>
+  </head>
+  <body>
+    <div class="card-background">
+      <div class="card-box">
+        <img src="./images/card1.png" alt="" />
+      </div>
+      <div class="card-box">
+        <img src="./images/card2.png" alt="" />
+      </div>
+      <div class="card-box">
+        <img src="./images/card3.png" alt="" />
+      </div>
+    </div>
+    
+    <style>
+      .card-background {
+        height: 3000px;
+        margin-top: 800px;
+        margin-bottom: 1600px;
+      }
+
+      
+      .card-box {
+        position: sticky;
+        top: 100px;
+        /* 보이기 시작했을때 화면 기준 맨 위에서 아래로 300픽셀 고정 */
+        margin-top: 200px;
+        transition: all 0.2s;
+      }
+      .card-box img {
+        display: block;
+        margin: auto;
+        width:50%;
+        
+        position: sticky;
+        
+      }
+    </style>
+    <!-- jQuery CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(window).scroll(function () {
+        var height = $(window).scrollTop();
+        console.log(height);
+        var y =(-1/460) * height + (70/23);
+        var scale_y = (-0.00021) * height + (1.20434);
+        // y= a*x+b;, y=1이면 opacity 1일때니까 940
+        // y=0이면 opcaity 0일때니까 1400.
+        // 1 = a*940+b
+        // 0 = a*1400+b, 
+
+        //a = (1-b)/940. ((1-b)/940)*1400+b =0. b = 70/23, a = (1-70/23)/940. a= -3/940
+        $('.card-box').eq(0).css('opacity',y);
+        $('.card-box').eq(0).css('transform',`scale(${scale_y})`);
+      });
+
+    //   이건 흠 사이즈에 대한 식
+    //  // 1 = a*940+b
+        // 0.9 = a*1400+b, 
+        
+
+    //   940~1400
+    </script>
+  </body>
+</html>

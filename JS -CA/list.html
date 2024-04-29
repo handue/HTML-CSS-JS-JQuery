@@ -16,48 +16,206 @@
       <div class="card">
         <img src="https://via.placeholder.com/600" />
         <div class="card-body">
-          <h5>Card title</h5>
+          <h5 id ="title">Card title</h5>
           <p>가격 : 70000</p>
-          <button class="btn btn-danger">주문하기</button>
+          <button id="order" class="btn btn-danger">주문하기</button>
         </div>
       </div>
       <div class="card">
         <img src="https://via.placeholder.com/600" />
         <div class="card-body">
-          <h5>Card title</h5>
+          <h5 id="title">Card title</h5>
           <p>가격 : 70000</p>
-          <button class="btn btn-danger">주문하기</button>
+          <button id="order" class="btn btn-danger">주문하기</button>
         </div>
       </div>
       <div class="card">
         <img src="https://via.placeholder.com/600" />
         <div class="card-body">
-          <h5>Card title</h5>
+          <h5 id="title">Card title</h5>
           <p>가격 : 70000</p>
-          <button class="btn btn-danger">주문하기</button>
+          <button id="order" class="btn btn-danger">주문하기</button>
         </div>
       </div>
     </div>
-
-    <script
+    <!-- <button style = "margin:50px;" type="button" class="btn btn-danger">더보기</button> -->
+    <!-- <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
     <script
       src="https://code.jquery.com/jquery-3.7.1.min.js"
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
+
     <script>
-        var products = [
-          { id: 0, price: 70000, title: "Blossom Dress" },
-          { id: 1, price: 50000, title: "Springfield Shirt" },
-          { id: 2, price: 60000, title: "Black Monastery" },
-        ];
-        
-        document.querySelector('.card-body h5').innerHTML = products[0]['title'];
-        document.querySelector('.card-body p').innerHTML = '가격: ' + products[0]['price'];
-      </script>
+       
+      var products = [
+        { id: 0, price: 70000, title: "Blossom Dress" },
+        { id: 1, price: 50000, title: "Springfield Shirt" },
+        { id: 2, price: 60000, title: "Black Monastery" },
+      ];
+
+      // buttonCreate();
+      productsAjax();
+
+      $("#more").click(function () {
+        console.log("클릭");
+        products.sort(function (a, b) {
+          return a.price - b.price
+          //정렬 원하면 $(.card-group).html=''; 해서 다 비워준다음에 다시 하면 될듯.
+        });
+      });
+
+
+      // $('#title-sort').click(function(){
+      //   console.log('클릭');
+      //   products.sort(function(a,b){
+      //     if(a.title>b.title){
+      //       return 1;
+      //     }else if(a.title<b.title){
+      //       return -1;
+      //     }else{
+      //       return 0;
+      //     }
+      //   });
+      //   console.log(products); 
+      //   $('.card-group').html('');
+      //   products.forEach(function(data){
+      //     $('.card-group').append(`<div class="card"><img src="https://via.placeholder.com/600"/><div class="card-body"><h5 id='title'>${data.title}</h5><p>가격 : ${data.price}</p><button class="btn btn-danger">주문하기</button></div></div>`);
+      //   });
+      // })
+
+      // $('#price-sort').click(function(){
+      //   console.log('가격 클릭');
+      //   var priceFilter = products.filter(function(a){
+      //       return a.price<=60000;
+      //   });
+      //   $('.card-group').html('');
+      //   priceFilter.forEach(function(data){
+      //     $('.card-group').append(`<div class="card"><img src="https://via.placeholder.com/600"/><div class="card-body"><h5 id='title'>${data.title}</h5><p>가격 : ${data.price}</p><button class="btn btn-danger">주문하기</button></div></div>`);
+      //   });
+      // })
+      
+      localStorage.clear();
+      
+      
+
+      $('.btn').click(function(e){
+          var title = $(e.target).siblings('h5').html();
+          // html 내용 출력
+          // e.target.previousElementSibling.previousElementSibling
+          //이건 h5를 두 번 가서 찾는거. 퓨어 자바스크립트임
+          if(localStorage.getItem('장바구니') ==null){
+          localStorage.setItem('장바구니',JSON.stringify([title]));
+          console.log(title);
+          }
+          else{
+            // var basicItem = localStorage.getItem('장바구니')
+            var getItem = JSON.parse(localStorage.장바구니);
+            //이게 위에 basicItem방식이랑 같다네.
+            // console.log(getItem);          
+            getItem.push(title);
+    
+            console.log(title);
+            localStorage.setItem('장바구니',JSON.stringify(getItem));
+            
+          }
+      })
+
+      // localStorage.clear()
+      
+      // Local storage는 사이트 재접속해도 데이터 유지, SessionStorage는 사이트 나가면 데이터 삭제됨.
+      //localStorage 를 sessionstorage로 바꾸면 명령어 알아서 다 작동하고 세션 스토리지에 저장됨.
+      // 구매버튼 눌렀을 떄 localStorage에 상품명 저장.
+      
+      // localStorage.setItem('이름','정한주');
+      // localStorage.getItem('이름');
+      // localStorage.removeItem('이름');
+      // var arr =[1,2,3];
+      // var newArr = JSON.stringify(arr);
+      //위 JSON 이 JSON으로 변형해주는 함수
+      // localStorage.setItem('num',newArr);
+      // 이렇게 하면 [] 부분이 꺠지니까 array를 편법으로 저장해야함. 그러려고 쓰는게 json
+      // var getItem = localStorage.getItem('num');
+      // console.log(getItem);
+      //지금 상태는 array나 object가 아니라 JSON 형식임. 그래서 이걸 원래 형태로 바꾸려면 JSON.parse 사용하면 됨
+      // var parseItem = JSON.parse(getItem);
+      // console.log(parseItem);
+      
+      // 이미 들어간 자료 수정하려면 자료 꺼내고, 꺼낸거 수정하고, 다시 그거 넣으면 됨. 싫으면 서버 만드셈.
+
+
+      // $('#price-sort')
+
+
+
+
+
+
+
+      // var array = [7, 3, 5, 2, 40];
+      // array.sort(function (a, b) {
+      //   return a - b;
+      // }); // 그냥 sort만 쓰면 문자순으로 정렬, 그 안에 function 뭐시기 return 하면 숫자순으로 오름차순 정렬.
+      // // return 이 양수면 a를 오른쪽으로, 음수면 b를 오른쪽으로 보내줌. a와 b는 array안의 자료임. 처음은 7이랑 3이겠지.
+      // // 7-3은 양수니까 a인 7을 오른쪽으로, 이러다보면 큰 숫자일수록 뒤로 갈거임.
+      // // 내림차순으로 할거면 b-a,
+      // console.log(array);
+
+      // var arrayFilter = array.filter(function(a){
+      //   return a>5
+      // })
+
+      // var arrayMap = array.map(function(a){
+      //   return a*4
+      // });
+        // map은 모든 객체 요소들에 대해 조건을 더해주는 것
+
+      // 이건 a가 5 이상인 자료들만 가져오는거. 근데 filter 는 새로 나온 문법이라 변수 안에다가 값을 저장해야함, 원본 변형 X. sort()는 구 문법이라 원본을 변형함.
+
+      // var array2 = ["a", "c", "b"];
+      // array2.sort(); // 이런거는 문자 정렬 알아서 해줌, 가나다 순 or 알파벳 순. 근데 역순 정렬을  하고 싶다?
+      // //a가 b보다 큼. 앞파벳에서 먼저 나오는게 큰거임. 고로 a가  제일 큼. 음수면 b가 오른쪽, 양수면 a가 오른쪽으로 감.
+      // array2.sort(function (a, b) {
+      //   if (a > b) {
+      //     return -1;
+      //   } else if (a < b) {
+      //     return 1;
+      //   } else {
+      //     return 0;
+      //     //이건 a=b같을때 그냥 둔다는 거인듯.
+      //     // 지금 이렇게 한게 오름차순 정렬, 작은 값부터 앞에다가 두는거.
+      //   }
+      // });
+      // console.log(array2);
+
+      function buttonCreate(){
+
+      document.querySelector('body').insertAdjacentHTML('beforeend','<button style = "margin:50px;" type="button" class="btn btn-danger">더보기</button>');
+      $("body").append(
+        '<button style = "margin:50px;" type="button" id= "more" class="btn btn-danger">가격순정렬</button>'
+      );
+
+      $("body").append(
+        '<button style = "margin:50px;" type="button" id= "title-sort" class="btn btn-danger">상품명 정렬</button>'
+      );
+
+      $("body").append(
+        '<button style = "margin:50px;" type="button" id= "price-sort" class="btn btn-danger">6만원 이하</button>'
+      );}
+
+      function productsAjax(){
+      products.forEach(function (data, i) {
+        document.querySelectorAll(".card-body h5")[i].innerHTML = data["title"];
+        document.querySelectorAll(".card-body p")[i].innerHTML =
+          "가격: " + data["price"];
+      });}
+
+
+     
+    </script>
   </body>
 </html>
