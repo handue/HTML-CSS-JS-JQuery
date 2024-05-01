@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>slide</title>
+    <style>
+        .slide-container{
+            min-width: 100vw;
+            border: 1px solid rgb(119, 45, 197);
+            display: flex;
+            
+        }
+       
+
+        img{
+            
+            border: 1px solid black;
+            width:inherit;
+            height: inherit;
+            object-fit: cover;
+    
+        }
+    </style>
+  </head>
+  <body>
+    
+    <div style="overflow: hidden;">
+        <div class="slide-container">
+            <div class="slide-box">
+                <img src="./images/card1.png" draggable="false">
+            </div>
+            <div class="slide-box">
+                <img src="./images/card2.png" draggable="false" alt="">
+            </div>
+            <div class="slide-box">
+                <img src="./images/card3.png" draggable="false" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+
+        var start = 0;
+        var clickCheck = false;
+        var slide_range = 0;
+        var right = 0;
+        $('.slide-box').on('mousedown',function(e){
+            // console.log(e.clientX);
+            start = e.clientX;
+            // e.clinetX 이건 현재 마우스 좌표
+            //mousedown, 마우스 클릭했을 때, mouseup 마우스 뗼 때(클릭 뗼때)
+            clickCheck = true;
+            
+        })
+        $('.slide-box').on('mousemove',function(e){
+            slide_range = e.clientX - start;
+            // console.log(slide_range);
+            if(clickCheck == true){
+                
+                $('.slide-container').css('transform',`translateX(${slide_range}px)`)
+            }
+        })
+
+        $('.slide-box').on('mouseup',function(e){
+            clickCheck = false;
+            console.log(slide_range);
+            
+            if(slide_range <= -100){
+                right = right -100
+                $('.slide-container').css('transform',`translateX(${right}vw)`).css('transition',`0.5s`);
+            }else{
+                right = right + 100 
+                $('.slide-container').css('transform',`translateX(${right}vw)`).css('transition',`0.5s`);
+            }
+        })
+
+        // 몰라 이건 좀 대충 했는데 나중에 할 떄는 좀 바꿔서 해보셈. 
+        // 나중에 모바일에서도 하려면 mouse 이벤트를 touchstart나 touchmove, touchend 뭐 이런거로 바꿔야함. e.touches[0] 으로 위치 측정. if 코드는 e.changedTouches[0] 뭐 이렇게
+        // hAMMER.JS 쓰면 브라우저 호환성 좋고 touch나 mouse나 똑같이 해준다고 하네.
+    </script>
+  </body>
+</html>
