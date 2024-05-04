@@ -491,7 +491,7 @@ a{
     width: 100%;
 }
 
-.faq-list .question-list li{
+.faq-list .question-list li:not(.active){
     position: relative;
     background-color: rgba(128, 128, 128, 0.34);
     padding-left: 30px;
@@ -506,12 +506,18 @@ a{
 }
 
 .faq-list .question-list li.active{
-    /* TODO: 이것도 운동 갔다와서 수정해야함 */
+    background-color: rgba(128, 128, 128, 0.34);
+    font-size: 27px;
+    margin-bottom: 10px;
+    margin-inline: 150px;
+    padding-left: 30px;
     cursor: default;
-    margin-top: -9px;
-    transition: all 1.0s;
-    height: 0;
-    visibility: hidden;
+    margin-top: -9px;    
+    /* display: none; */
+    max-height: 0px;
+    transition: 0.3s;
+    overflow: hidden;
+    line-height: 1.5em;
 }
 
 /* .question-list li::before{
@@ -548,7 +554,8 @@ a{
 
 .faq-list .getstarted{
     /* border: 1px solid white; */
-    height: 7%;
+    height: 20%;
+    padding-bottom: 115px;
 }
 
 

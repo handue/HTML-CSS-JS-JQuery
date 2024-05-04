@@ -18,13 +18,16 @@ placeholderEffect(emailInput2,emailPlaceholder2);
 for(let i=0; i<=5; i++){
     let clickCheck = false;
     faqList.eq(i).click(function(){
-        // TODO: 운동 갔다와서 이거 수정해야됨. 애니메이션 적용 어떻게 하더라, 일단 display 계열은 애니메이션 적용 안 되는거 같음. transition같은거
         if(clickCheck == false){
-            $(this).next().css('background-color','white');
+            // $(this).next().slideDown(300);
+            $(this).next().css('max-height','600px');
+            $(this).next().css('padding-block','20px');
             
             clickCheck = true;
             }else if(clickCheck ==true){
-                $(this).next().css('visibility','hidden');
+                // $(this).next().slideUp(300);
+                $(this).next().css('max-height','0px');
+                $(this).next().css('padding-block','0px');
                 
                 clickCheck = false;
             }
@@ -32,10 +35,10 @@ for(let i=0; i<=5; i++){
 
         faqList.eq(i).hover(function(){
             $(this).css('background-color','rgba(128, 128, 128, 0.744)');
-            $(this).css('transition','0.5s');
+            $(this).css('transition','0.3s');
         },function(){
             $(this).css('background-color','rgba(128, 128, 128, 0.34)');
-            $(this).css('transition','0.5s');
+            $(this).css('transition','0.3s');
                 }
             )
 
