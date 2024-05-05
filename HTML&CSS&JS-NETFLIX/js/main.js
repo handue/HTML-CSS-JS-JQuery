@@ -2,9 +2,9 @@
  * Section = Welcome Part 
  */
 
-var emailInput = document.querySelector('#email');
+var emailInput = document.querySelector('.email-input');
 var emailPlaceholder = document.querySelector('.email-placeholder');
-var emailInput2 = document.querySelector('#email2')
+var emailInput2 = document.querySelector('.email-input2')
 var emailPlaceholder2 = document.querySelector('.email-placeholder2')
 // var faqList = document.querySelectorAll('question-list li')
 var faqList = $('.question-list li:not(.active)');
@@ -12,6 +12,7 @@ var faqList = $('.question-list li:not(.active)');
 
 placeholderEffect(emailInput,emailPlaceholder);
 placeholderEffect(emailInput2,emailPlaceholder2);
+
 
 
 
@@ -55,6 +56,8 @@ function placeholderEffect(selectInput,selectPlaceholder){
         console.log('이메일 값 변경됨', selectInput.value);
         if(selectPlaceholder.value)
         textCheck();
+        validCheck(selectInput);
+        validCheck(selectInput);
     });
     
     selectInput.addEventListener('focus',function(){
@@ -62,6 +65,7 @@ function placeholderEffect(selectInput,selectPlaceholder){
     });
     
     selectInput.addEventListener('blur',function(){
+        //focus의 반댓말, focus를 잃었을때를 blur
         if(selectInput.value ==''){
             selectPlaceholder.classList.remove('active');
         }
@@ -77,6 +81,44 @@ function placeholderEffect(selectInput,selectPlaceholder){
     }
 }
 
+
+function emailCheck(email_adress){
+    email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+    if(email_adress !=''){
+        console.log('이메일어드레스 낫널');
+        if(email_regex.test(email_adress)){
+            console.log('이메일형식 오케');
+            return true;
+        }else{
+            console.log('이메일형식 아님');
+            return false;
+            
+            }
+        }
+}
+
+function validCheck(input){
+    if(emailCheck(input.value)){
+        input.classList.remove('unvalid');
+        input.classList.add('valid');
+        // TODO: 이거 unvalid 된다음에 valid 되면 unvalid 추가한다음에 valid 를 추가하게 됨. 그래서 이거 동작 구동 유연하게 바꿔야할듯
+        if(input.id == 'email'){
+        $('#close-circle').css('visibility','hidden');
+        } else if(input.id == 'email2'){
+            $('#close-circle2').css('visibility','hidden');
+        }
+        
+    }else{
+        input.classList.remove('valid');
+        input.classList.add('unvalid');
+        if(input.id == 'email'){
+            $('#close-circle').css('visibility','visible');
+            } else if(input.id == 'email2'){
+                $('#close-circle2').css('visibility','visible');
+            }
+        
+    }
+}
 
 // selectInput.addEventListener('input', ()=>{ 
 //     console.log('이메일 값 변경됨', emailInput.value);

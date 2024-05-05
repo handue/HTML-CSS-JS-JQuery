@@ -113,10 +113,12 @@ a{
     display: flex;
     justify-content: center;
     height: 20%;
+    
 }
 
 
 .getstarted input[type=email]{
+    position: relative;
     background-color: rgba(0, 0, 0, 0.379);
     width: 30%;
     padding-left: 15px;
@@ -124,6 +126,7 @@ a{
     margin-right: 10px;
     border-radius: 5px;
     border:1px solid rgba(255, 255, 255, 0.343);
+    /* border: 1px solid crimson; */
     font-size: 16px;
     padding-top: 15px;
     /* vertical-align: middle;
@@ -133,9 +136,23 @@ a{
 }
 
 .getstarted input[type=email]:focus{
-    outline-color: white;
-    transition: 0.3s;
+    /* outline-color:rgb(255, 0, 0); */
+    outline: 2px solid white;
+    /* border: 2px solid crimson; */
+    
 }
+
+.getstarted .email-input.valid,
+.getstarted .email-input2.valid{
+    border: 1.5px solid rgb(0, 185, 0);
+}
+
+
+.getstarted .email-input.unvalid,
+.getstarted .email-input2.unvalid{
+    border: 1.5px solid crimson;
+}
+
 
 .getstarted .email-placeholder,
 .faq-list .getstarted .email-placeholder2{
@@ -166,8 +183,31 @@ a{
     background-color: rgba(255, 0, 0, 0.905);
     font-size:25px;
     font-weight: 550;
-    cursor: pointer;
-    
+    cursor: pointer;    
+}
+
+
+#close-circle,
+#close-circle2{
+    visibility: hidden;
+    width: 20%;
+    font-size: 20px;
+    display: flex;
+    position: absolute;
+    left:372px;
+    padding-top:8px;
+    color: crimson;
+}
+
+#close-circle2{
+    top:60px;
+}
+
+#close-circle p,
+#close-circle2 p{
+    margin-top:4px;
+    padding-left: 2px;
+    font-size: 13px;
 }
 
 /* Section = adsplacn */
