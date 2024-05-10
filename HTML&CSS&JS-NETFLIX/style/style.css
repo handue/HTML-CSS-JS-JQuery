@@ -179,7 +179,6 @@ a{
 .login .password-placeholder{
     font-size: 17px;
     position: absolute;
-    
     top:25%;
     left:5%;
     transition: 0.3s;
@@ -187,7 +186,7 @@ a{
     pointer-events: none;
 }
 
-/* TODO: 오늘 여기까지 함 이따 더 해야할듯 */
+
 
 .getstarted .email-placeholder.active,
 .faq-list .getstarted .email-placeholder2.active{
@@ -197,6 +196,20 @@ a{
    font-size: 12px;
    transition: 0.2s;
 }
+
+.login .email-placeholder.active,
+.login .password-placeholder.active{
+    font-size: 17px;
+    position: absolute;
+    top:25%;
+    left:5%;
+    transition: 0.3s;
+    color:rgba(255, 255, 255, 0.611);
+    pointer-events: none;
+}
+
+/* TODO: 오늘 여기까지 함 이따 더 해야할듯 */
+/* FIXME: login 모달에서 이메일이랑 비번 놓는 곳 active 자바 스크립트 추가 해야되고, valid랑 unvalid도 추가해야함. */
 
 .getstarted button{
     width:18%;
@@ -684,8 +697,7 @@ a{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid white;
-    background-color: rgba(0, 0, 0, 0.401);
+    background-color: rgba(0, 0, 0, 0.563);
     width: 30%;
     height: 80%;
     top:50%;
@@ -710,10 +722,10 @@ a{
 
 .modal-email input[type=email],
 .modal-password input[type=password]{
-    
     color: white;
     width: 100%;
     height: 100%;
+    margin-bottom: 15px;
     
     /* position: relative;
     background-color: rgba(0, 0, 0, 0.379);
@@ -728,6 +740,36 @@ a{
 
 .login input[type=button]{
     width: 80%;
+    cursor: pointer;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    padding-block:10px;
+    font-size: 17px;
+    word-spacing: 2.5px;
+    /* margin-top: 8px; */
     /* margin-top: 20px; */
     
 }
+
+#modal-signin{
+    background-color: rgba(255, 0, 0, 0.905);
+    margin-top: 8px;
+    text-transform: capitalize;
+}
+
+#modal-signin + p{
+    font-size: 17px;
+    color:rgb(145, 144, 144);
+}
+
+#modal-signin-code{
+    margin-bottom:10px;
+    background-color: rgba(128, 128, 128, 0.518);
+}
+
+#modal-signin-code + a{
+    font-weight: 250;
+}
+
+.save-info
