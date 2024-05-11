@@ -4,18 +4,55 @@
 
 var emailInput = document.querySelector('.email-input');
 var emailPlaceholder = document.querySelector('.email-placeholder');
+
 var emailInput2 = document.querySelector('.email-input2')
 var emailPlaceholder2 = document.querySelector('.email-placeholder2')
+
+var modalEmailInput = document.querySelector('.modal-email-input');
+var modalEmailPlaceholder = document.querySelector('.email-placeholder3');
+
+var modalPasswordInput = document.querySelector('.modal-password-input');
+var modalPasswordPlaceholder = document.querySelector('.password-placeholder3');
+
 // var faqList = document.querySelectorAll('question-list li')
 var faqList = $('.question-list li:not(.active)');
 
+// todo: 로그인 버튼 눌렀을 때
+
+// $('.signin').click(function(){
+    
+// })
+
 // todo: 로그인 모달 Remember me 버튼
+var check = false;
 
+$('.remember-label').click(function(e){
+    e.stopPropagation(); 
+    console.log(check);
+    if(check == false){
+    $('#checkbutton').css('visibility','visible');
+    $('.remember-button').addClass('active');
+    console.log('트루 됨');
+        return check = true;
+        
+    }
+    else if(check ==true){
+        $('#checkbutton').css('visibility','hidden');
+        console.log('펄스 됨');
+        $('.remember-button').removeClass('active');
+        return check = false;
+    }
+})
 
-
+//todo: 이거 로그인 모달에도 추가해야함 
 
 placeholderEffect(emailInput,emailPlaceholder);
 placeholderEffect(emailInput2,emailPlaceholder2);
+
+// FIXME: 이거 흠, 비밀번호는 valid도 다르게 설정해야할듯. 그리고 지금 placeholderEffect 안 먹고, 스크롤도 되고 있음.
+// sign in 버튼 눌렀을떄 home에 active줘서 overflow:hidden 설정해서 스크롤 안 되게 해야될듯.
+placeholderEffect(modalEmailInput, modalEmailPlaceholder);
+placeholderEffect(modalPasswordInput, modalPasswordPlaceholder);
 
 for(let i=0; i<=5; i++){
     let clickCheck = false;

@@ -148,8 +148,8 @@ a{
 
 .getstarted .email-input.valid,
 .getstarted .email-input2.valid,
-.login .modal-email.valid,
-.login .modal-password.valid
+.modal-email-input.valid,
+.modal-password-input.valid
 {
     border: 1.5px solid rgb(0, 185, 0);
 }
@@ -157,8 +157,8 @@ a{
 
 .getstarted .email-input.unvalid,
 .getstarted .email-input2.unvalid,
-.login .modal-email.unvalid,
-.login .modal-password.unvalid{
+.modal-email-input.unvalid,
+.modal-password-input.unvalid{
     border: 1.5px solid crimson;
 }
 
@@ -175,8 +175,8 @@ a{
     pointer-events: none;
 }
 
-.login .email-placeholder,
-.login .password-placeholder{
+.email-placeholder3,
+.password-placeholder3{
     font-size: 17px;
     position: absolute;
     top:25%;
@@ -197,12 +197,14 @@ a{
    transition: 0.2s;
 }
 
-.login .email-placeholder.active,
-.login .password-placeholder.active{
-    font-size: 17px;
+.email-placeholder3.active,
+.password-placeholder3.active{
+    font-size: 12px;
     position: absolute;
-    top:25%;
-    left:5%;
+    /* top:25%;
+    left:5%; */
+    top:2px;
+    left:16px;
     transition: 0.3s;
     color:rgba(255, 255, 255, 0.611);
     pointer-events: none;
@@ -234,6 +236,25 @@ a{
     padding-top:8px;
     color: crimson;
 }
+
+/* FIXME: 5월12일 해야될거. 이거 흠, absolute로 하면 안 되고 아래에 추가 되게 해서 아래 항목들 밀어내야 할듯 */
+/* TODO: 이거 하.. 높이 조절해서 해봐야 할듯. 이거 지금 높이 조절해서 circle3 넣고 circle3p도 넣어야함. 그러려면 login modal 자체 크기도 가변적으로 늘어나도록 바꿀수 있어야함. */
+#close-circle3{
+    visibility: visible;
+    width: 100%;
+    font-size: 18px;
+    display: flex;
+    padding-top: 8px;
+    color: crimson;
+}
+
+#close-circle3 p{
+    margin-top:2.5px;
+    padding-left: 2px;
+    font-size: 13px;
+}
+
+
 
 #close-circle2{
     top:60px;
@@ -691,6 +712,8 @@ a{
     z-index: 3;
 }
 
+/* TODO: 5월12일 해야될거, 이 아래 height 지워버리는게 나을수도 있을듯, 아니면 min-height로 주던가. */
+
 .login{
     position: absolute;
     display: flex;
@@ -700,9 +723,14 @@ a{
     background-color: rgba(0, 0, 0, 0.563);
     width: 30%;
     height: 80%;
+    min-height: 80%;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+}
+
+.login a:hover{
+    text-decoration: underline;
 }
 
 .login h4{
@@ -770,50 +798,97 @@ a{
 }
 
 #modal-signin-code + a{
-    font-weight: 250;
+    font-weight: 350;
+    font-size: 15px;
 }
+
+#modal-signin-code + a:hover{
+    color: rgb(164, 164, 164);
+}
+
 .save-info{
     width: 75%;
-    
     margin-top: 15px;
+    
 }
 
 .remember-label{
-    font-size: 16px;
-    font-weight: 300;
+    font-size: 14px;
+    font-weight: 400;
     position: relative;
-    padding-left: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 45%;
     
 }
-.remember-label::before{
-    /* content: "\ea0e"; */
-    /* '\e92a' */
-    content: '';
-    position: absolute;
-    line-height: 1em;
-    left:0;
-    top:0;
-    font-size: 18px;
+
+.remember-label:hover .remember-button {
+    border: 1px solid white;
+    transition: 0.3s;
+  }
+
+.remember-button{
+    position: relative;
     width: 18px;
     height: 18px;
-    border: 1px solid rgba(128, 128, 128, 0.754);
+    border: 1px solid rgba(161, 161, 161, 0.426);
+    margin-right: 10px;
     border-radius: 2px;
-}
-
-
-
-.remember-label:hover::before{
-    border: 1px solid white;
     transition: 0.3s;
 }
 
-.save-info label input{
-    position: relative;
-    cursor: pointer;
-    display: none;
-    width: 20px;
-    height: 20px;
-    vertical-align: top;
-    margin-right: 6px;
+#checkbutton{
+    visibility: hidden;
+    border: 1px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}
+
+.remember-button.active{
+    color:black;
+    width: 18px;
+    height: 18px;
+    border: 1px solid white;
+    background-color: white;
+    margin-right: 10px;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.remember-button.active:hover{
+    background-color: rgba(255, 255, 255, 0.686);
+}
+
+.sign-up{
+    margin-top: -10px;
+    font-size: 15px;
+    width: 75%;
+}
+
+.sign-up p{
+    color:rgb(165, 162, 162);
+}
+
+.notice{
+    margin-top: -10px;
+    width: 75%;
+    height: 10%;
+
+}
+
+.notice p{
+    line-height: 1.5em;
+    word-spacing: 2px;
+    height: 100%;
+    font-size: 11px;
+    color: grey;
+}
+
+.notice a{
+    font-size: 12px;
+    color: rgb(27, 109, 250);
 }
 
