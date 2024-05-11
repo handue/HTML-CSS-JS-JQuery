@@ -706,7 +706,7 @@ a{
 }
 
 .login h4{
-    width: 80%;
+    width: 75%;
     font-size: 32px;
     font-weight: 450;
     margin-bottom: 30px;
@@ -715,9 +715,9 @@ a{
 .modal-email,
 .modal-password{
     position: relative;
-    width: 80%;
+    width: 75%;
     height: 10%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .modal-email input[type=email],
@@ -739,14 +739,15 @@ a{
 }
 
 .login input[type=button]{
-    width: 80%;
+    width: 75%;
     cursor: pointer;
     border: none;
     color: white;
     border-radius: 4px;
     padding-block:10px;
     font-size: 17px;
-    word-spacing: 2.5px;
+    
+    letter-spacing: 1px;
     /* margin-top: 8px; */
     /* margin-top: 20px; */
     
@@ -771,5 +772,48 @@ a{
 #modal-signin-code + a{
     font-weight: 250;
 }
+.save-info{
+    width: 75%;
+    
+    margin-top: 15px;
+}
 
-.save-info
+.remember-label{
+    font-size: 16px;
+    font-weight: 300;
+    position: relative;
+    padding-left: 30px;
+    
+}
+.remember-label::before{
+    /* content: "\ea0e"; */
+    /* '\e92a' */
+    content: '';
+    position: absolute;
+    line-height: 1em;
+    left:0;
+    top:0;
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid rgba(128, 128, 128, 0.754);
+    border-radius: 2px;
+}
+
+
+
+.remember-label:hover::before{
+    border: 1px solid white;
+    transition: 0.3s;
+}
+
+.save-info label input{
+    position: relative;
+    cursor: pointer;
+    display: none;
+    width: 20px;
+    height: 20px;
+    vertical-align: top;
+    margin-right: 6px;
+}
+
