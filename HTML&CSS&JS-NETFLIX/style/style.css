@@ -117,9 +117,7 @@ a{
 }
 
 
-.getstarted input[type=email],
-.modal-email input[type=email],
-.modal-password input[type=password]{
+.getstarted input[type=email]{
     position: relative;
     background-color: rgba(0, 0, 0, 0.379);
     width: 30%;
@@ -138,8 +136,8 @@ a{
 }
 
 .getstarted input[type=email]:focus,
-.modal-email input[type=email]:focus,
-.modal-password input[type=password]:focus{
+.modal-email .modal-email-input:focus,
+.modal-password .modal-password-input:focus{
     /* outline-color:rgb(255, 0, 0); */
     outline: 2px solid white;
     /* border: 2px solid crimson; */
@@ -150,8 +148,9 @@ a{
 .getstarted .email-input2.valid,
 .modal-email-input.valid,
 .modal-password-input.valid
-{
-    border: 1.5px solid rgb(0, 185, 0);
+{   
+    border: 1.5px solid rgb(0, 185, 0) !important;
+    /* 아 이거 흠, modal-email 이랑 password같은 경우엔 이 위치보다 더 나중에 쓰여서 우선 순위가 그게 먼저인듯. 그래서 important해줬음 */
 }
 
 
@@ -159,7 +158,7 @@ a{
 .getstarted .email-input2.unvalid,
 .modal-email-input.unvalid,
 .modal-password-input.unvalid{
-    border: 1.5px solid crimson;
+    border: 1.5px solid crimson !important;
 }
 
 
@@ -177,10 +176,11 @@ a{
 
 .email-placeholder3,
 .password-placeholder3{
-    font-size: 17px;
+    /* border: 1px solid white; */
+    font-size: 15px;
     position: absolute;
-    top:25%;
-    left:5%;
+    top:12.5px;
+    left:15px;
     transition: 0.3s;
     color:rgba(255, 255, 255, 0.611);
     pointer-events: none;
@@ -240,18 +240,40 @@ a{
 /* FIXME: 5월12일 해야될거. 이거 흠, absolute로 하면 안 되고 아래에 추가 되게 해서 아래 항목들 밀어내야 할듯 */
 /* TODO: 이거 하.. 높이 조절해서 해봐야 할듯. 이거 지금 높이 조절해서 circle3 넣고 circle3p도 넣어야함. 그러려면 login modal 자체 크기도 가변적으로 늘어나도록 바꿀수 있어야함. */
 #close-circle3{
-    visibility: visible;
+    display: none;
     width: 100%;
+    /* border: 1px solid white; */
+    margin-top: 7px;
     font-size: 18px;
-    display: flex;
-    padding-top: 8px;
     color: crimson;
+    /* border: 1px solid white; */
+    height: 20px;
+    
 }
 
-#close-circle3 p{
-    margin-top:2.5px;
-    padding-left: 2px;
+
+#close-circle3 span{
+    line-height: 1.45em;
+    padding-left: 3px;
     font-size: 13px;
+    vertical-align: top;
+}
+
+#close-circle4{
+    display: none;
+    width: 100%;
+    margin-top: 7px;
+    font-size: 18px;
+    color: crimson;
+    /* border: 1px solid white; */
+    height: 43px;
+}
+
+#close-circle4 span{
+    margin-top:1px;
+    padding-left: 3px;
+    font-size: 13px;
+    line-height: 1em;
 }
 
 
@@ -710,6 +732,7 @@ a{
     height: 100vh;
     position: fixed;
     z-index: 3;
+    /* display: none; */
 }
 
 /* TODO: 5월12일 해야될거, 이 아래 height 지워버리는게 나을수도 있을듯, 아니면 min-height로 주던가. */
@@ -722,7 +745,7 @@ a{
     align-items: center;
     background-color: rgba(0, 0, 0, 0.563);
     width: 30%;
-    height: 80%;
+    /* height: 80%; */
     min-height: 80%;
     top:50%;
     left:50%;
@@ -740,30 +763,67 @@ a{
     margin-bottom: 30px;
 }
 
-.modal-email,
+.modal-email{
+    position: relative;
+    width: 75%;
+    max-height: 100px;
+    /* margin-bottom: 5px; */
+}
+
 .modal-password{
     position: relative;
     width: 75%;
-    height: 10%;
-    margin-bottom: 15px;
+    max-height: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* border: 1px solid white; */
 }
 
-.modal-email input[type=email],
-.modal-password input[type=password]{
+.modal-email .modal-email-input,
+.modal-password .modal-password-input{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.379);
+    width: 30%;
+    padding-left: 15px;
+    color: white;
+    margin-right: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    padding-top: 15px;
     color: white;
     width: 100%;
-    height: 100%;
-    margin-bottom: 15px;
-    
-    /* position: relative;
-    background-color: rgba(0, 0, 0, 0.379);
-    color: white;
-    border-radius: 5px;
+    height: 50px;
     border:1px solid rgba(255, 255, 255, 0.343);
-    /* border: 1px solid crimson; */
-    /* font-size: 16px;
-    padding-left: 15px; */ 
+}
+
+
+.eye-icon-container{
+    position: absolute;
+    top:25%;
+    right:2%;
+    width: 30px;
+    height: 30px;
     
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.xi-eye-o,
+.xi-eye-off-o{
+    cursor: pointer;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    font-size: 20px;
+}
+
+.eye-icon-container:hover{
+    background-color: rgba(255, 255, 255, 0.253);
+}
+
+.xi-eye-off-o{
+    visibility: hidden;
 }
 
 .login input[type=button]{
@@ -774,7 +834,6 @@ a{
     border-radius: 4px;
     padding-block:10px;
     font-size: 17px;
-    
     letter-spacing: 1px;
     /* margin-top: 8px; */
     /* margin-top: 20px; */
@@ -783,7 +842,6 @@ a{
 
 #modal-signin{
     background-color: rgba(255, 0, 0, 0.905);
-    margin-top: 8px;
     text-transform: capitalize;
 }
 
