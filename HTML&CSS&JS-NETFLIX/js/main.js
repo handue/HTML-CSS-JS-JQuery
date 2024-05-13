@@ -92,21 +92,22 @@ function placeholderEffect(selectInput, selectPlaceholder) {
     console.log("이메일 값 변경됨", selectInput.value);
     if (selectInput.type == "email") {
       console.log("셀렉트 타입 이메일");
-      if (selectInput.value) {
+      if (selectInput !='') {
         // FIXME: 여기 selectPlaceholder.value 였는데 바꿨음. 왜 placeholder였는지 모르겠네
         console.log("벨류값 트루");
-        textCheck();
+        // textCheck();
         validCheck(selectInput);
         // validCheck(selectInput);
       }
     } else if (selectInput.type == "password") {
       console.log("셀렉트타입패스워드");
-      if (selectInput.value) {
+       if(selectInput != '')
+        //  
         validCheck(selectInput);
-        textCheck();
+        
       }
     }
-  });
+  );
 
   selectInput.addEventListener("focus", function () {
     selectPlaceholder.classList.add("active");
@@ -120,7 +121,7 @@ function placeholderEffect(selectInput, selectPlaceholder) {
   });
 
   function textCheck() {
-    //이거 있어야 placeholder 움직이게 할 수 있네
+    //이거 그 흠 텍스트 남아있으면 placeholder 이펙트 계속 유지시키는거
     if (selectInput.value != "") {
       selectPlaceholder.classList.add("active");
     } else {
@@ -173,7 +174,8 @@ function validCheck(input) {
   }
 }
 
-//FIXME: 이메일이나 패스워드나 한번 true 받고 나서 다시 내용 전부 다 지우면 false가 안됨.
+//FIXME: 이메일이나 패스워드나 한번 true 받고 나서 다시 내용 전부 다 지우면 false가 안됨. -> 이거 그냥 TextCheck 지워버리니까 됐음.
+//FIXME: 그리고 아이콘도 after로 달아야할거 같음. 이거 after로 안 달으니까 circle4 들어가면 위치가 바뀜  -> 이거먼저 하자. 너무 쉽게 고쳤음. 그ㅇ %가 아니라 px 로 주면 고정값 돼서 알아서 고정되네
 
 function emailCheck(email_adress) {
   email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
@@ -198,6 +200,24 @@ function passwordCheck(passwordInput) {
     return true;
   }
 }
+
+//todo: eye-icon 클릭 사용
+
+var eyeOn = $('#eye-on');
+var eyeOff = $('#eye-off');
+
+eyeOn.click(function(){
+  $('.modal-password-input').attr('type','text');
+  eyeOn.css('visibility','hidden');
+  eyeOff.css('visibility','visible');
+  
+})
+
+eyeOff.click(function(){
+  $('.modal-password-input').attr('type','password');
+  eyeOff.css('visibility','hidden');
+  eyeOn.css('visibility','visible');
+})
 
 // selectInput.addEventListener('input', ()=>{
 //     console.log('이메일 값 변경됨', emailInput.value);
