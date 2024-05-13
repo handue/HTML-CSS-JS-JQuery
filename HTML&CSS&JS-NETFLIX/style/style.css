@@ -16,8 +16,8 @@ body{
     width: 100vw; 
     height: 100vh;
     margin: 0;
-    
     overflow-x: hidden;
+    overflow: auto;
 }
 
 a{
@@ -732,7 +732,7 @@ a{
     height: 100vh;
     position: fixed;
     z-index: 3;
-    /* display: none; */
+    display: none;
 }
 
 /* TODO: 5월12일 해야될거, 이 아래 height 지워버리는게 나을수도 있을듯, 아니면 min-height로 주던가. */
@@ -761,6 +761,14 @@ a{
     font-size: 32px;
     font-weight: 450;
     margin-bottom: 30px;
+    float: left;
+}
+
+.login .xi-close{
+    position: absolute;
+    right: 8px;
+    font-size: 25px;
+    cursor: pointer;
 }
 
 .modal-email{
@@ -817,9 +825,6 @@ a{
     font-size: 20px;
 }
 
-.xi-eye-o{
-    visibility: visible;
-}
 
 .xi-eye-off-o{
     visibility: hidden;

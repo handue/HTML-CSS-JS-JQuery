@@ -92,7 +92,7 @@ function placeholderEffect(selectInput, selectPlaceholder) {
     console.log("이메일 값 변경됨", selectInput.value);
     if (selectInput.type == "email") {
       console.log("셀렉트 타입 이메일");
-      if (selectInput !='') {
+      if (selectInput != "") {
         // FIXME: 여기 selectPlaceholder.value 였는데 바꿨음. 왜 placeholder였는지 모르겠네
         console.log("벨류값 트루");
         // textCheck();
@@ -101,13 +101,11 @@ function placeholderEffect(selectInput, selectPlaceholder) {
       }
     } else if (selectInput.type == "password") {
       console.log("셀렉트타입패스워드");
-       if(selectInput != '')
-        //  
+      if (selectInput != "")
+        //
         validCheck(selectInput);
-        
-      }
     }
-  );
+  });
 
   selectInput.addEventListener("focus", function () {
     selectPlaceholder.classList.add("active");
@@ -191,8 +189,6 @@ function emailCheck(email_adress) {
   }
 }
 
-
-
 function passwordCheck(passwordInput) {
   if (passwordInput.length < 4 || passwordInput.length > 60) {
     return false;
@@ -201,23 +197,52 @@ function passwordCheck(passwordInput) {
   }
 }
 
-//todo: eye-icon 클릭 사용
+//todo: sign in 버튼 눌렀을때 login modal 뜨게 하고, 스크롤 안 되게 하기
 
-var eyeOn = $('#eye-on');
-var eyeOff = $('#eye-off');
+var modalCheck = false;
 
-eyeOn.click(function(){
-  $('.modal-password-input').attr('type','text');
-  eyeOn.css('visibility','hidden');
-  eyeOff.css('visibility','visible');
-  
-})
+$(".signin button").click(function () {
+  $(".modal-login").css("display", "flex");
+  // $('body').css('overflow','hidden');
+  //FIXME: 이거 흠, 로그인 모달 고정시킬라 했는데 고정시키면 뭔가 불편해보여서 걍 없앴음
+  modalCheck = true;
+});
 
-eyeOff.click(function(){
-  $('.modal-password-input').attr('type','password');
-  eyeOff.css('visibility','hidden');
-  eyeOn.css('visibility','visible');
-})
+//todo: modal-login x버튼 누르면 꺼지게 하기
+
+$(".xi-close").click(function () {
+  $(".modal-login").css("display", "none");
+  // $('body').css('overflow','visible');
+  modalCheck = false;
+});
+
+//FIXME: 이것도 뭔가 오히려 불편한거 같아서 그냥 성능에서 지움. 이게 로그인 모달 밖 누르면 모달 꺼지게 하는거임.
+
+// $('.modal-login').click(function(e){
+//   // e.stopPropagation;
+//   if(modalCheck=true && e.target == this){
+//   $('.modal-login').css('display','none');
+//   $('body').css('overflow','auto');
+//   modalCheck= false;
+//   }}
+// )
+
+//todo: 로그인 모달에서 eye-icon 클릭 사용
+
+var eyeOn = $("#eye-on");
+var eyeOff = $("#eye-off");
+
+eyeOn.click(function () {
+  $(".modal-password-input").attr("type", "text");
+  eyeOn.css("visibility", "hidden");
+  eyeOff.css("visibility", "visible");
+});
+
+eyeOff.click(function () {
+  $(".modal-password-input").attr("type", "password");
+  eyeOff.css("visibility", "hidden");
+  eyeOn.css("visibility", "visible");
+});
 
 // selectInput.addEventListener('input', ()=>{
 //     console.log('이메일 값 변경됨', emailInput.value);
