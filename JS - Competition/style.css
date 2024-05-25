@@ -1,5 +1,6 @@
 /* *Section Header */
 *{
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -74,7 +75,10 @@
     object-fit: contain;
 }
 
-.item1 h4,h6,p{
+.items .item1 h4,
+.items .item1 h6,
+.items .item1 p{
+    color: black;
     margin: 0;
     margin-block: 10px;
 }
@@ -88,13 +92,14 @@
 }
 
 /* * Section Cart */
-.cart{
+.cart-section{
     margin-top: 20px;
 }
-.cart h4{
+.cart-section h4{
     margin-left: 15px;
 }
-.drag{
+.cart{
+    position: relative;
     background-color: black;
     border: 1px solid black;
     height: 30vh;
@@ -102,9 +107,33 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
-.drag p{
+.cart p{
     font-size: 16px;
     color: white;
+}
+
+.cart .item1{
+    width: 15%;
+    height: inherit;
+    object-fit: cover;
+    background-color: white;   
+    border: 1px solid rgb(139, 139, 139);
+    margin-inline: 5px;
+}
+
+.cart .item1 p,
+.cart .item1 h4,
+.cart .item1 h6{
+    margin: 0;
+    color: black;
+    margin-block: 15px;
+}
+
+
+
+.cart .item1 input{
+    display: none;
 }
