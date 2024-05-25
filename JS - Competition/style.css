@@ -1,0 +1,110 @@
+/* *Section Header */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.dragging{
+    opacity: 0.5;
+}
+
+.header{
+    /* border: 1px solid black; */
+    padding: 0;
+    margin: 0;
+    
+}
+
+.header-title{
+    background-color: black;
+    border: 1px solid black;
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+}
+
+/* .header-title p{
+} */
+
+.header-title p:nth-child(1){
+    font-size: 18px;
+    margin-inline: 10px;
+    margin-right: 20px;
+}
+
+.header-title p:not(:nth-child(1)){
+    padding-right: 10px;
+    font-size: 15px;
+}
+
+.header-title p:nth-child(1),
+.header-title p:nth-child(2){
+    color: white;
+}
+
+.header-title p:nth-child(3),
+.header-title p:nth-child(4){
+    color: grey;
+}
+
+/* *Section items */
+
+.item{}
+
+.item #search-bar{
+    margin: 20px;
+}
+
+.items{
+
+    display: flex;
+    gap: 100px;
+}
+
+.items .item1{
+    margin-left: 20px;
+    width: 150px;
+    height: 250px;
+}
+
+.item1 img{
+    width: 100%;
+    height: 50%;
+    object-fit: contain;
+}
+
+.item1 h4,h6,p{
+    margin: 0;
+    margin-block: 10px;
+}
+
+.item1 input{
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    border-radius: 3px;
+    font-weight: 100;
+}
+
+/* * Section Cart */
+.cart{
+    margin-top: 20px;
+}
+.cart h4{
+    margin-left: 15px;
+}
+.drag{
+    background-color: black;
+    border: 1px solid black;
+    height: 30vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.drag p{
+    font-size: 16px;
+    color: white;
+}
