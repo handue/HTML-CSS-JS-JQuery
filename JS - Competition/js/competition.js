@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         divItem1.draggable = true;
         // divItem1.id = itemId;
         // divItem1.photo = itemPhoto;
-        divItem1.innerHTML = `<img src="${itemPhoto}" alt='' draggable='false'><h4>${itemTitle}</h4><h6>${itemBrand}</h6><p>${itemPrice}</p><input type='button' value='담기'>`;
+        divItem1.innerHTML = `<img src="${itemPhoto}" alt='' draggable='false'><h4>${itemTitle}</h4><h6>${itemBrand}</h6><p id="itemPrice">${itemPrice}</p><input type='button' value='담기'>`;
         //TODO: 밥먹고와서 오류 체킹, 그리고 이거 items에 넣어야되는지 아닌지 확인해봐야할듯. append랑 이거랑 차이가 뭐지 왜 안되지
         // index++;
 
@@ -46,15 +46,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // ! [0] 을 안하면 cart라는 요소가 하나뿐이라도 이를 컬렉션으로 반환함. 근데 addEvenetListener는 컬렉션이 아닌 개별 요소의 메서드이기에 [0] 안 하면 작동 안 함.
   function dragstart(event) {
     event.dataTransfer.setData("text/plain", event.target.id);
+    // event.target.style.opacity = "0.5";
   }
 
   function dragover(event) {
     event.preventDefault();
+    
     //! prevenetDefault 해놔야 잘 된다네, 이유는 뭐지
     // * 이유 찾아옴. dragover가 실행될때 기본적으로 드롭 영역 위에서 마우스 커서 모양이 금지 표시로 됨. 근데 prevenetDefault해놓으면 드롭 영역을 유효한 드롭 타겟으로 인식 시킬수 있다는걸 시각적으로 보여줄 수 있음.
   }
   function drop(event) {
     event.preventDefault();
+  
     //* drop 이벤트는 기본적으로 일반적으로 드래그된 요소를 해당 위치에 드롭하느 ㄴ것이 아니라 새로운 페이지를 열음. 그래서 그 동작 막으려면 이거 씀
     const itemId = event.dataTransfer.getData("text/plain");
     // text/plain은 데이터 유형을 (문자열)일반 텍스트로 지정하는거. 전송되는 데이터가 일반 텍스트라는걸 나타내는 거임.
@@ -62,15 +65,30 @@ document.addEventListener("DOMContentLoaded", () => {
     // const cloneItem = item.cloneNode(true);
     // event.target.appendChild(cloneItem);
     document.querySelector(".cart p").style.display = "none";
-
     cart.insertAdjacentHTML("beforeend", item.outerHTML);
+    var cartItemPrice = document.querySelectorAll(".cart .item1 #itemPrice");
+    var total = 0;
+    cartItemPrice.forEach(item=>{
+      //TODO: 5월 26일 더 해야할거 -> 모달창에서 구매완료 누르면 영수증을 이미지형태로 보여줘야합니다.  장바구니 개별 항목의 주문 수량을 변경할 수 있어야합니다. 모든 상품과 수량의 최종 합계 금액을 어디간에 보여주어야 함. 구매하기를 누르면 성함 연락처를 입력할 수 있는 모달창을 띄워주어야 함.
+      //todo: 값들을 각각 받아서 parse int 해야함 
+      
+      var selectPrice = parseInt(item.textContent);
+      console.log(selectPrice);
+      total += selectPrice;
+      document.querySelector('#total-price').innerHTML = '최종가격:';
+      document.querySelector('#total-price').insertAdjacentHTML("beforeend",total+"원");
+      console.log(total);
+    })
+    // document.querySelector('#total-price').insertAdjacentHTML("beforeend",cartItemPrice);
+    
   }
   // var items = document.querySelectorAll(".item1");
   //! fetch 통해서 게시글 데이터를 동적으로 받아오고 나서부터는 items가 맨 처음 초기화될 때 저장되는거라 null 값이 저장됨. 그래서 이거 동적 요소에 대해 이벤트 리스너 추가해야 한다는듯.
   // todo: 리스너 달거나 변수에 mutationObbserver 달아서 변하는 상태에 따라 변수 바꾸는 방법이 있다는데, 두 개 다 해볼까? 근데 변수가 변하는거는 addEventListner로 할만한게 없는데 mutation으로 해야되나
 
   // var items = document.querySelectorAll(".item1");
-  // items.forEach(function (item) {
+  // items.forEach(function (item) {드래그 되고 있는 항목의 opacity를 0.5로 하려면 어떻게 해?
+
   //   item.addEventListener("dragstart", dragstart);
   // });
 
@@ -82,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
   cart.addEventListener("drop", drop);
 
   // * 검색 이벤트
-  //FIXME: 이것도 fetch 로 받아오고 나선 작동 안함 수정해야할듯
+  //FIXME: 이것도 fetch 로 받아오고 나선 작동 안함 수정해야할듯. 수정했음, items값이 초기에 null이라서 fetch 이후 다시 설정하도록 하니까 잘 되네.
   searchBar.addEventListener("input", (e) => {
     const searchValue = e.target.value.toLowerCase();
 
