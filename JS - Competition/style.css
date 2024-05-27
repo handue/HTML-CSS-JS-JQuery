@@ -5,6 +5,8 @@
     padding: 0;
 }
 
+
+
 .dragging{
     opacity: 0.5;
 }
@@ -139,10 +141,61 @@
     color: black;
     margin-block: 15px;
 }
-
-
-
-
 .cart .item1 input{
     display: none;
+}
+.cart-section input{
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px;
+    background-color: black;
+    color: white;
+}
+
+/* Modal Section */
+
+.modal{
+    /* visibility: hidden; */
+    position: absolute;
+    top:0%;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid red;
+}
+.modal-container{
+   
+    /* visibility: hidden; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    height: 600px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.modal-container p{
+    
+    margin-left: 20px;
+    font-weight: 700;
+    font-size: 20px;
+}
+.modal-container .button{
+    position: absolute;
+    top: 80%;
+    /* border: 1px solid black; */
+}
+.modal-container input{
+    cursor: pointer;
+    padding: 10px;
+    /* border: 1px solid black; */
+    color: white;
+    background-color: black;
+    margin-left: 20px;
+    
 }

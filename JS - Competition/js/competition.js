@@ -75,8 +75,11 @@ document.addEventListener("DOMContentLoaded", () => {
       var selectPrice = parseInt(item.textContent);
       console.log(selectPrice);
       total += selectPrice;
-      document.querySelector('#total-price').innerHTML = '최종가격:';
-      document.querySelector('#total-price').insertAdjacentHTML("beforeend",total+"원");
+      // document.querySelector('#total-price').innerHTML = '최종가격:';
+      // document.querySelector('#total-price').insertAdjacentHTML("beforeend",total+"원");
+      // ? insertAdjacentHTML은 기존거 남기지만, 그냥 innerHTML로 다 해버리면 기존거 안 남기고 다 지워버림.
+
+      document.querySelector('#total-price').innerHTML = "최종가격:" + total + "원";
       console.log(total);
     })
     // document.querySelector('#total-price').insertAdjacentHTML("beforeend",cartItemPrice);
@@ -135,4 +138,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  //* 구매하기 버튼 눌렀을 때 이벤트
+
+  document.querySelector('.cart-section button').addEventListener("click",function(){
+    
+  })
+  
+
 });
