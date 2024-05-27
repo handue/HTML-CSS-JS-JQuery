@@ -54,6 +54,7 @@
       <div class="cart">
         <p>여기로 드래그</p>
       </div>
+      <h4 class="cart-items">담은 물품:</h4>
       <h4 id="total-price">최종가격:</h4>
       <input type="button" value="구매하기" />
     </section>
@@ -64,9 +65,16 @@
           <p>연락처</p>
         </div>
         <div class="button">
-          <input type="button" value="입력완료" /><input
+          <input id="payment" type="button" value="결제하기" />
+          <input type="button" value="닫기" id="close-button" />
+        </div>
+        <div class="canvas-container" style="position: relative" width="600" height="400">
+          <canvas id="canvas" width="600" height="400"> </canvas>
+          <input
+            id="canvas-close"
             type="button"
             value="닫기"
+            style="position: absolute; top: 0px; right: 5px;"
           />
         </div>
       </div>

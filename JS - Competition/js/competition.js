@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const searchBar = document.getElementById("search-bar");
   var items;
+ 
+ 
 
   //* ajax
   //! JQuery로 하면 더 간단하다네
@@ -22,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
         divItem1.draggable = true;
         // divItem1.id = itemId;
         // divItem1.photo = itemPhoto;
-        divItem1.innerHTML = `<img src="${itemPhoto}" alt='' draggable='false'><h4>${itemTitle}</h4><h6>${itemBrand}</h6><p id="itemPrice">${itemPrice}</p><input type='button' value='담기'>`;
-        //TODO: 밥먹고와서 오류 체킹, 그리고 이거 items에 넣어야되는지 아닌지 확인해봐야할듯. append랑 이거랑 차이가 뭐지 왜 안되지
+        divItem1.innerHTML = `<img src="${itemPhoto}" alt='' draggable='false'><h4 id="item-title">${itemTitle}</h4><h6>${itemBrand}</h6><p id="itemPrice">${itemPrice}</p><input type='button' value='담기'><input id="item-close-button" type='button' value='장바구니에서 빼기'>`;
+        // TODO: 밥먹고와서 오류 체킹, 그리고 이거 items에 넣어야되는지 아닌지 확인해봐야할듯. append랑 이거랑 차이가 뭐지 왜 안되지
         // index++;
 
         // document.querySelector(".items").insertAdjacentHTML('beforeend',divItem1);
@@ -31,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".items").appendChild(divItem1);
       });
       items = document.querySelectorAll(".item1");
-      // * items 이렇게 재정의 해주니까 검색 기능도 자동으로 돌아왔음 
+      // * items 이렇게 재정의 해주니까 검색 기능도 자동으로 돌아왔음
       items.forEach(function (item) {
         item.addEventListener("dragstart", dragstart);
       });
@@ -51,13 +53,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function dragover(event) {
     event.preventDefault();
-    
+
     //! prevenetDefault 해놔야 잘 된다네, 이유는 뭐지
     // * 이유 찾아옴. dragover가 실행될때 기본적으로 드롭 영역 위에서 마우스 커서 모양이 금지 표시로 됨. 근데 prevenetDefault해놓으면 드롭 영역을 유효한 드롭 타겟으로 인식 시킬수 있다는걸 시각적으로 보여줄 수 있음.
   }
   function drop(event) {
     event.preventDefault();
-  
+
+     var idCount1 = 0,
+      idCount2 = 0,
+      idCount3 = 0,
+      idCount4 = 0;
+    var total = 0;
     //* drop 이벤트는 기본적으로 일반적으로 드래그된 요소를 해당 위치에 드롭하느 ㄴ것이 아니라 새로운 페이지를 열음. 그래서 그 동작 막으려면 이거 씀
     const itemId = event.dataTransfer.getData("text/plain");
     // text/plain은 데이터 유형을 (문자열)일반 텍스트로 지정하는거. 전송되는 데이터가 일반 텍스트라는걸 나타내는 거임.
@@ -67,23 +74,94 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".cart p").style.display = "none";
     cart.insertAdjacentHTML("beforeend", item.outerHTML);
     var cartItemPrice = document.querySelectorAll(".cart .item1 #itemPrice");
-    var total = 0;
-    cartItemPrice.forEach(item=>{
-      //TODO: 5월 26일 더 해야할거 -> 모달창에서 구매완료 누르면 영수증을 이미지형태로 보여줘야합니다.  장바구니 개별 항목의 주문 수량을 변경할 수 있어야합니다. 모든 상품과 수량의 최종 합계 금액을 어디간에 보여주어야 함. 구매하기를 누르면 성함 연락처를 입력할 수 있는 모달창을 띄워주어야 함.
-      //todo: 값들을 각각 받아서 parse int 해야함 
-      
+    var cartItemsTitle = document.querySelectorAll(".cart .item1 #item-title");
+    
+    
+    function titleUpdate(item){
+      if (item.textContent == "식기세척기") {
+        idCount1++;
+      } else if (item.textContent == "원목 침대 프레임") {
+        idCount2++;
+      } else if (item.textContent == "천연 디퓨저 세트") {
+        idCount3++;
+      } else if (item.textContent == "시원한 서큘레이터") {
+        idCount4++;
+      }
+      document.querySelector(".cart-items").innerHTML =
+      "담은 물품:" +
+      "식기세척기:" +
+      idCount1 +
+      "원목:" +
+      idCount2 +
+      "천연:" +
+      idCount3 +
+      "서큘레이터:" +
+      idCount4;
+    }
+
+    function titleDelete(item){
+      if (item.textContent == "식기세척기") {
+        idCount1--;
+      } else if (item.textContent == "원목 침대 프레임") {
+        idCount2--;
+      } else if (item.textContent == "천연 디퓨저 세트") {
+        idCount3--;
+      } else if (item.textContent == "시원한 서큘레이터") {
+        idCount4--;
+      }
+      document.querySelector(".cart-items").innerHTML =
+      "담은 물품:" +
+      "식기세척기:" +
+      idCount1 +
+      "원목:" +
+      idCount2 +
+      "천연:" +
+      idCount3 +
+      "서큘레이터:" +
+      idCount4;
+    }
+
+    cartItemsTitle.forEach((item) => {
+      titleUpdate(item);
+    });
+
+    cartItemPrice.forEach((item) => {
+
+
       var selectPrice = parseInt(item.textContent);
-      console.log(selectPrice);
+
       total += selectPrice;
       // document.querySelector('#total-price').innerHTML = '최종가격:';
       // document.querySelector('#total-price').insertAdjacentHTML("beforeend",total+"원");
       // ? insertAdjacentHTML은 기존거 남기지만, 그냥 innerHTML로 다 해버리면 기존거 안 남기고 다 지워버림.
 
-      document.querySelector('#total-price').innerHTML = "최종가격:" + total + "원";
-      console.log(total);
-    })
+      document.querySelector("#total-price").innerHTML =
+        "최종가격:" + total + "원";
+    });
     // document.querySelector('#total-price').insertAdjacentHTML("beforeend",cartItemPrice);
-    
+
+    //* 장바구니에서 항목 뺄 때
+    //! FIXME: 지금 drop 될때만 작동함.   
+    cartInItems = document.querySelectorAll("#item-close-button");
+
+    cartInItems.forEach((item) => {
+      item.addEventListener("click", function () {
+        const itemPriceElement = this.parentElement.querySelector("#itemPrice");
+        const itemTitleElement = this.parentElement.querySelector("#item-title");
+        if(itemPriceElement){
+          total -= parseInt(itemPriceElement.textContent);
+          document.querySelector("#total-price").innerHTML = "최종가격:" + total + "원";
+        }
+
+        //todo: 이 titlecheck안에 들어갈 item을 remove 버튼이 눌러진 거의 형제 인접자(itemtitle)로 하면 될듯.
+        
+        titleDelete(itemTitleElement)
+        item.closest(".item1").remove();
+        
+        
+        //todo: 지금 삭제 버튼 누르면 삭제까지는 됨. 근데 이렇게 했을때, 담은 물품이랑 최종 가격이 업데이트가 안 돼. 
+      });
+    });
   }
   // var items = document.querySelectorAll(".item1");
   //! fetch 통해서 게시글 데이터를 동적으로 받아오고 나서부터는 items가 맨 처음 초기화될 때 저장되는거라 null 값이 저장됨. 그래서 이거 동적 요소에 대해 이벤트 리스너 추가해야 한다는듯.
@@ -141,9 +219,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //* 구매하기 버튼 눌렀을 때 이벤트
 
-  document.querySelector('.cart-section button').addEventListener("click",function(){
+  document
+    .querySelector(".cart-section input")
+    .addEventListener("click", function () {
+      document.querySelector(".modal").style.visibility = "visible";
+    });
+
+  document
+    .querySelector("#close-button")
+    .addEventListener("click", function () {
+      document.querySelector(".modal").style.visibility = "hidden";
+    });
+
+
+    //* 영수증 파트. canvas로 하면 이미지처럼 사용할 수 있음.
     
-  })
-  
+    var canvas = document.getElementById('canvas'); 
+    var c = canvas.getContext('2d');
+    c.font = '20px dotum';
+    c.fillText('영수증', 10, 30);
+    c.font = '15px dotum';
+    
+    c.fillText('안녕하세요', 50, 100);
+    c.fillText('반갑습니다', 50, 130); 
+    
+    
+    document.querySelector('.button #payment').addEventListener("click",function(){
+      document.querySelector(".canvas-container").style.visibility = "visible";
+      var currentDate = new Date();
+      c.fillText(currentDate, 10, 50);
+      c.font = '30px dotum';
+      c.fillText('아 몰랑 영수증 부분은 생략~', 50, 200);
+      console.log(currentDate);
+      
+      if(idCount1>0){
+        c.fillText('식기세척기', 50, 100);
+      }
+      if(idCount2>0){
+        c.fillText('원목 침대 프레임', 50, 200);
+      }
+      if(idCount3>0){
+        c.fillText('천연 디퓨저 세트', 50, 300);
+      }
+      if(idCount4>0){
+        c.fillText('아 몰랑 영수증 부분은 생략~', 50, 400);
+      }
+
+      document.querySelectorAll('.cart .item1').forEach(item=>{
+        item.querySelector('#item-title').text
+        //title이랑 brand랑 가격 찾아야하고, 수량만 위에 변수 그대로 가져오고. 합계도 그대로 가져와야함.
+      })
+    });
+    
+    document.querySelector('#canvas-close').addEventListener("click",function(){
+      document.querySelector(".canvas-container").style.visibility = "hidden";
+    })
 
 });
