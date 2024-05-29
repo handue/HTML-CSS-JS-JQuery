@@ -267,7 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       document.querySelectorAll('.cart .item1').forEach(item=>{
         item.querySelector('#item-title').text
-        //title이랑 brand랑 가격 찾아야하고, 수량만 위에 변수 그대로 가져오고. 합계도 그대로 가져와야함.
+        //title이랑 brand랑 가격 찾아야하고, 수량만 위에 변수 그대로 가져오고. 합계도 그대로 가져와야함
       })
     });
     
