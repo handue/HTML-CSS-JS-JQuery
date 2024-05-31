@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<!-- ! customElements.define(); 하면 길고 복잡한 HTML 축약할 수 있음. 그냥 커스텀 태그라고 생각하면 됨 -->
+
+<custom-input name="비번"></custom-input>
+
+<template id ="template1">
+    <label>${name}안녕하세요</label><input>
+            <style>label{color:red}</style>`;
+</template>
+</body>
+<script>
+
+    class test extends HTMLElement{
+        connectedCallback(){
+            // let labelElement = document.createElement('label');
+            // this.appendChild(labelElement);
+            // 우리가 만든 custom-input 같은 태그가 HTML에 장착될 때 실행할 코드를 적는 HTMLElement의 기본 탑재 메소드임. 위가 아래보다 html 생성 속도가 더 빠름. 이런식으로 커스텀 HTML 만들면 재활용이나 html 중복 제거 가능함.
+            let name = this.getAttribute('name');
+            this.attachInternals({mode:'open'});
+            this.shadowRoot.append(template1.content.cloneNode(true))
+
+            this.shadowRoot.querySelector('label').addEventListener('click',function(){});
+            // 뭐 이벤트 리스너도 가능
+
+            // this.shadowRoot.innerHTML = `<label>${name}안녕하세요</label><input>
+            // <style>label{color:red}</style>`;
+
+                //이렇게 하면 이 style은 이 shadow dom에만 적용됨. 다른 label들에는 적용 안 하게 할 수 있음. 이렇게 하면 label에 class를 주거나 id를 직접 주는거 안 해도 됨. 근데 이렇게 하면 꼴보기 싫잖아, 그래서 template 사용해서 하면 좋음. template에 있는건 렌더링 안되고 html 보관소 역할을 수행함. 사실 이렇게 하는거보다 라이브러리나 그냥 프레임워크 쓰면 됨.
+            
+        }
+    }
+
+    customElements.define('custom-input', test );
+</script>
+</html>
