@@ -8,6 +8,7 @@
     box-sizing: border-box;
    
 }
+/* 그렇게하면 안될거 같은데 일단은 이렇게 하는거로 생각하자. 일일단 이거 해보고 안되면 수정해야될듯. 홈페이지랑  */
 
 body{
     background-color: black;
@@ -71,6 +72,8 @@ a{
     background-size: cover;
     position: relative;
 }
+
+
 
 .welcome::before{
     content: '';
@@ -419,6 +422,7 @@ a{
     height: inherit;
     object-fit: cover;
     z-index: 1;
+
 }
 .enjoy-container .tv-gif video {
     position: absolute;
