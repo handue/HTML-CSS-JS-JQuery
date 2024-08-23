@@ -19,6 +19,7 @@ body{
     margin: 0;
     overflow-x: hidden;
     overflow: auto;
+    
 }
 
 a{
@@ -831,6 +832,7 @@ a{
 
 .xi-eye-off-o{
     visibility: hidden;
+    
 }
 
 .eye-icon-container:hover{
@@ -962,3 +964,45 @@ a{
     color: rgb(27, 109, 250);
 }
 
+
+/* * test */
+
+
+.popup {
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+    height: 35vh;
+    background-color: rgba(255, 255, 255, 1); /* 배경색을 더 밝게 */
+    display: flex;
+    flex-direction: column; /* 내용 세로 정렬 */
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #007BFF; /* 경계색을 파란색으로 */
+    border-radius: 10px; /* 둥근 모서리 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+    padding: 20px; /* 내부 여백 */
+}
+
+.popup p {
+    padding: 10px 20px; /* 패딩 조정 */
+    font-size: 18px; /* 글자 크기 조정 */
+    color: #333; /* 글자 색상 */
+    text-align: center; /* 중앙 정렬 */
+}
+
+.close {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: #FF0000; /* 닫기 버튼 색상 */
+}
+
+.close:hover {
+    color: #ff6f3b; /* 마우스 오버 시 색상 변화 */
+}

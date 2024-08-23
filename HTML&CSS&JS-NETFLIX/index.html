@@ -18,59 +18,64 @@
     <div class="modal-login">
       <div class="login">
         <h4>Sign In<i class="xi-close"></i></h4>
-    
-        
+
         <!-- <input type="email" />
         <input type="password" /> -->
-        
+
         <div class="modal-email">
           <input type="email" class="modal-email-input" id="modal-email" />
-          <span
-            class="email-placeholder3"
-            >Email address</span
-          >
+          <span class="email-placeholder3">Email address</span>
           <i id="close-circle3" class="xi-close-circle-o"
-          ><span>Please enter a valid email address.</span></i
-        >
-        </div>
-        
-        <div class="modal-password">
-          <input type="password" class="modal-password-input" id="password" minlength="4" maxlength="61"/>
-          <span
-            class="password-placeholder3"
-            >Password </span
+            ><span>Please enter a valid email address.</span></i
           >
+        </div>
+
+        <div class="modal-password">
+          <input
+            type="password"
+            class="modal-password-input"
+            id="password"
+            minlength="4"
+            maxlength="61"
+          />
+          <span class="password-placeholder3">Password </span>
           <div class="eye-icon-container">
             <i class="xi-eye-o" id="eye-on"></i>
             <i class="xi-eye-off-o" id="eye-off"></i>
-            
           </div>
-         
-          <i id="close-circle4" class="xi-close-circle-o"
+
+          <i id="close-circle4" class="xi-close-circle-o">
+            <span
+              >Your password must contain between 4 and 60 characters.</span
+            ></i
           >
-          <span>Your password must contain between 4 and 60 characters.</span></i
-        >
         </div>
-        
-        <input id = "modal-signin"type="button" value="Sign In" />
+
+        <input id="modal-signin" type="button" value="Sign In" />
         <p>OR</p>
-        <input id = "modal-signin-code"type="button" value="Use a Sign-In Code" />
+        <input
+          id="modal-signin-code"
+          type="button"
+          value="Use a Sign-In Code"
+        />
         <!-- Button 태그로 해도 될듯 -->
         <a href="#none">Forgot password?</a>
         <div class="save-info">
           <label for="remember-me" class="remember-label">
             <!-- <input type="checkbox" name="" id="remember-me" /> -->
-            <span class="remember-button"><i class="xi-check-thin" id="checkbutton"></i></span>Remember me
+            <span class="remember-button"
+              ><i class="xi-check-thin" id="checkbutton"></i></span
+            >Remember me
           </label>
         </div>
         <div class="sign-up">
           <p>New to Netflix? <a href="#none">Sign up now.</a></p>
         </div>
-        
+
         <div class="notice">
           <p>
-            This page is protected by Google reCAPTCHA to<br>ensure you're not a
-            bot. <a href="#none">Learn more.</a>
+            This page is protected by Google reCAPTCHA to<br />ensure you're not
+            a bot. <a href="#none">Learn more.</a>
           </p>
         </div>
       </div>
@@ -307,6 +312,25 @@
         </div>
       </footer>
     </div>
+    <div id="myPopup" class="popup" style="display: none">
+      <div class="popup-image"><img src="" alt=""></div>
+      <span class="close" onclick="closePopup()">&times;</span>
+      <p>Don't miss the last chance buying V4 on Our Website!</p>
+      </p>
+    </div>
+    <script>
+      function openPopup() {
+        document.getElementById("myPopup").style.display = "flex";
+      }
+
+      function closePopup() {2
+        document.getElementById("myPopup").style.display = "none";
+      }
+
+      window.onload = function () {
+        openPopup();
+      };
+    </script>
 
     <script src="./js/main.js"></script>
   </body>
